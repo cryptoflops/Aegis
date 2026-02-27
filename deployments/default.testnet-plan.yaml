@@ -1,0 +1,39 @@
+---
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: "https://api.testnet.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: agent-evaluator-oracle
+            expected-sender: ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P
+            cost: 43220
+            path: contracts/agent-evaluator-oracle.clar
+            anchor-block-only: true
+            clarity-version: 4
+        - contract-publish:
+            contract-name: agent-registry
+            expected-sender: ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P
+            cost: 28560
+            path: contracts/agent-registry.clar
+            anchor-block-only: true
+            clarity-version: 4
+        - contract-publish:
+            contract-name: quest-escrow
+            expected-sender: ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P
+            cost: 54100
+            path: contracts/quest-escrow.clar
+            anchor-block-only: true
+            clarity-version: 4
+        - contract-publish:
+            contract-name: subscription-manager
+            expected-sender: ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P
+            cost: 30580
+            path: contracts/subscription-manager.clar
+            anchor-block-only: true
+            clarity-version: 4
+      epoch: "3.3"
