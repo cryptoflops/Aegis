@@ -60,9 +60,33 @@ async def evaluate_quest(req: EvaluationRequest):
     # The proof to go from leaf to root
     proof = [sibling_hash_1, sibling_hash_2]
     
-    # In a full Stacks app, we'd also trigger a transaction here calling
-    # `submit-evaluation` on the `agent-evaluator-oracle.clar` contract.
-    # For now, we return the data so the user can see it.
+    # Broadcast to Stacks Testnet
+    is_successful = "true" if confidence >= 50 else "false"
+    
+    import subprocess
+    import json
+    
+    node_cmd = [
+        "node", 
+        "broadcast.mjs",
+        str(req.quest_id),
+        str(req.agent_id),
+        str(confidence),
+        is_successful,
+        merkle_root,
+        features_hash
+    ]
+    
+    try:
+        result = subprocess.run(node_cmd, capture_output=True, text=True, check=True)
+        # Parse output from the Node script if valid JSON
+        try:
+            tx_data = json.loads(result.stdout)
+            print("Broadcast Result:", tx_data)
+        except:
+            print("Broadcast stdout:", result.stdout)
+    except subprocess.CalledProcessError as e:
+        print("Failed to broadcast transaction:", e.stderr)
 
     return EvaluationResponse(
         quest_id=req.quest_id,

@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #FF5500;
+  --color-brand-hover: #E64D00;
+  --color-brand-glow: rgba(255, 85, 0, 0.15);
+  --color-surface: #050508;
+  --color-panel: #0A0A0F;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 85, 0, 0.25);
+  --color-muted: #71717A;
+
+  /* Fluid type scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1rem + 1.25vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+  --text-5xl: clamp(2.75rem, 2rem + 3.75vw, 4.5rem);
+  --text-6xl: clamp(3.25rem, 2.25rem + 5vw, 6rem);
+}
+
+/* ─── Base ─── */
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: #e4e4e7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(255, 85, 0, 0.30);
+    color: #fff;
+  }
+}
+
+/* ─── Fluid Grid ─── */
+.fluid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+/* ─── Glass Card System ─── */
+.glass-card {
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.3));
+  backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 0 40px rgba(255, 85, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ─── Animated Gradient Orbs ─── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: orb-float 12s ease-in-out infinite alternate;
+}
+
+.orb-brand {
+  background: radial-gradient(circle, #FF5500 0%, transparent 70%);
+}
+
+.orb-amber {
+  background: radial-gradient(circle, #F59E0B 0%, transparent 70%);
+}
+
+.orb-blue {
+  background: radial-gradient(circle, #3B82F6 0%, transparent 70%);
+}
+
+@keyframes orb-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-20px, 15px) scale(0.95);
+  }
+}
+
+/* ─── Noise & Grid Textures ─── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ─── Scanline Hover Effect ─── */
+.scanline-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(255, 85, 0, 0.03) 50%);
+  background-size: 100% 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.scanline-hover:hover::after {
+  opacity: 1;
+}
+
+/* ─── Stagger Animations ─── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+
+.stagger-5 {
+  animation-delay: 0.25s;
+}
+
+/* ─── Glow Button ─── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #FF5500, #F59E0B, #FF5500);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+}
+
+.btn-glow:hover::before {
+  opacity: 0.5;
+}
+
+/* ─── Mono Data Label ─── */
+.data-label {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ─── Pulsing Dot ─── */
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.5);
+  }
+
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 6px rgba(255, 85, 0, 0);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ─── Horizontal Rule ─── */
+.hr-glow {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 85, 0, 0.3), transparent);
+  border: none;
+}
+
+/* ─── Input Focus Ring ─── */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(5, 5, 8, 0.8);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  color: #e4e4e7;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
+}
+
+.input-field::placeholder {
+  color: #3f3f46;
+}

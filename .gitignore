@@ -1,13 +1,43 @@
+# Secrets and deployment configs
 **/settings/Mainnet.toml
 **/settings/Testnet.toml
+.env
+.env.*
+
+# Clarinet
 .cache/**
 history.txt
-.env
-plan.py
-logs
+
+# Dependencies
+node_modules/
+venv/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Logs
+logs/
 *.log
 npm-debug.log*
-coverage
+yarn-debug.log*
+yarn-error.log*
+
+# Test artifacts
+coverage/
 *.info
 costs-reports.json
-node_modules
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Scratch files
+plan.py
