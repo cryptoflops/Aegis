@@ -1,6 +1,6 @@
 import { makeContractCall, broadcastTransaction, AnchorMode, stringAsciiCV, uintCV, boolCV, bufferCV, listCV, validateStacksAddress } from '@stacks/transactions';
 import pkg from '@stacks/network';
-const { STACKS_TESTNET } = pkg;
+const { STACKS_MAINNET } = pkg;
 import fs from 'fs';
 
 // This script expects arguments:
@@ -18,8 +18,8 @@ const confidence = parseInt(args[2], 10);
 const featuresHashHex = args[3];
 const merkleRootHex = args[4];
 
-// The deployer address of the smart contracts (From the Testnet plan)
-const CONTRACT_ADDRESS = "ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P";
+// The deployer address of the smart contracts (From the Mainnet plan)
+const CONTRACT_ADDRESS = "SP1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7M3CKVJJ";
 const CONTRACT_NAME = "agent-evaluator-oracle";
 const FUNCTION_NAME = "submit-evaluation";
 
@@ -28,7 +28,7 @@ const FUNCTION_NAME = "submit-evaluation";
 // For this tutorial, we read it from ORACLE_KEY env variable, falling back to a dummy key that WILL fail if used.
 const ORACLE_PRIVATE_KEY = process.env.ORACLE_KEY || "753b7cc01a1a2e86221266a154af73a4606d2529e58ea0c8540822bb2b4ed34d01";
 
-const network = STACKS_TESTNET;
+const network = STACKS_MAINNET;
 
 async function broadcastEvaluation() {
     try {

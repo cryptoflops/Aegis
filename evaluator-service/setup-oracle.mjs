@@ -6,7 +6,7 @@ import {
     standardPrincipalCV
 } from '@stacks/transactions';
 import pkg from '@stacks/network';
-const { STACKS_TESTNET } = pkg;
+const { STACKS_MAINNET } = pkg;
 import crypto from 'crypto';
 
 // Replace with your actual deployer mnemonic or private key environment variables
@@ -20,8 +20,8 @@ if (!rawDeployerKey) {
 // Stacks requires compressed keys appended with '01'
 const DEPLOYER_KEY = rawDeployerKey.length === 64 ? rawDeployerKey + '01' : rawDeployerKey;
 
-const network = STACKS_TESTNET;
-const CONTRACT_ADDRESS = "ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P";
+const network = STACKS_MAINNET;
+const CONTRACT_ADDRESS = "SP1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7M3CKVJJ";
 const CONTRACT_NAME = "agent-evaluator-oracle";
 
 async function setupOracle() {
