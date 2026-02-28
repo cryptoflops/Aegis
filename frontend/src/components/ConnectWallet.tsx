@@ -12,7 +12,7 @@ export default function ConnectWallet() {
     useEffect(() => {
         setMounted(true);
         if (userSession.isSignInPending()) {
-            userSession.handlePendingSignIn().then((pd) => {
+            userSession.handlePendingSignIn().then((pd: any) => {
                 setUserData(pd);
             });
         } else if (userSession.isUserSignedIn()) {
