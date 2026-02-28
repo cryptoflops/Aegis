@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Bot, ArrowRight, CheckCircle } from "lucide-react";
 import { openContractCall } from "@stacks/connect";
-import { userSession } from "@/lib/stacks-session";
+import { getUserSession } from "@/lib/stacks-session";
 import { stringAsciiCV, stringUtf8CV, uintCV, PostConditionMode } from "@stacks/transactions";
 
 const CONTRACT_ADDRESS = "ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P";
@@ -17,6 +17,7 @@ export default function RegisterForm() {
     const [txId, setTxId] = useState<string | null>(null);
 
     const handleRegister = async () => {
+        const userSession = getUserSession();
         if (!userSession.isUserSignedIn()) {
             alert("Please connect your wallet first!");
             return;

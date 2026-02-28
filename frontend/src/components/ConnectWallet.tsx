@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { authenticate } from "@stacks/connect";
-import { userSession } from "@/lib/stacks-session";
+import { getUserSession } from "@/lib/stacks-session";
 import { Wallet } from "lucide-react";
 
 export default function ConnectWallet() {
@@ -11,6 +11,7 @@ export default function ConnectWallet() {
 
     useEffect(() => {
         setMounted(true);
+        const userSession = getUserSession();
         if (userSession.isSignInPending()) {
             userSession.handlePendingSignIn().then((pd) => {
                 setUserData(pd);
@@ -23,6 +24,7 @@ export default function ConnectWallet() {
     if (!mounted) return null;
 
     const connect = () => {
+        const userSession = getUserSession();
         authenticate({
             appDetails: {
                 name: "Aegis",
@@ -37,6 +39,7 @@ export default function ConnectWallet() {
     };
 
     const disconnect = () => {
+        const userSession = getUserSession();
         userSession.signUserOut("/");
         setUserData(null);
     };

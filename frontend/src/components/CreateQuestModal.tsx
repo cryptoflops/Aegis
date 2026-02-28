@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { X, Send, Coins } from "lucide-react";
 import { openContractCall } from "@stacks/connect";
-import { userSession } from "@/lib/stacks-session";
+import { getUserSession } from "@/lib/stacks-session";
 import { standardPrincipalCV, uintCV, noneCV, stringAsciiCV, PostConditionMode } from "@stacks/transactions";
 
 const CONTRACT_ADDRESS = "ST1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7MAMP23P";
@@ -16,6 +16,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const userSession = getUserSession();
         if (!userSession.isUserSignedIn()) {
             alert("Please connect your wallet first!");
             return;
