@@ -5,11 +5,12 @@ import { X, Send, Coins } from "lucide-react";
 import { openContractCall } from "@stacks/connect";
 import { getUserSession } from "@/lib/stacks-session";
 import { standardPrincipalCV, uintCV, noneCV, stringAsciiCV, PostConditionMode } from "@stacks/transactions";
-import { STACKS_MAINNET } from "@stacks/network";
+import { STACKS_MAINNET, STACKS_TESTNET } from "@stacks/network";
 
-const CONTRACT_ADDRESS = "SP1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7M3CKVJJ";
+const isMainnet = process.env.NEXT_PUBLIC_NETWORK === "mainnet";
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "SP1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7M3CKVJJ";
 const ESCROW_CONTRACT_NAME = "quest-escrow";
-const STACKS_NETWORK = STACKS_MAINNET;
+const STACKS_NETWORK = isMainnet ? STACKS_MAINNET : STACKS_TESTNET;
 
 export default function CreateQuestModal({ agent, onClose }: { agent: any, onClose: () => void }) {
     const [prompt, setPrompt] = useState("");

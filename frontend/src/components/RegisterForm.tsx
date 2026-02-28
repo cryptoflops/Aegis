@@ -5,10 +5,11 @@ import { Bot, ArrowRight, CheckCircle } from "lucide-react";
 import { openContractCall } from "@stacks/connect";
 import { getUserSession } from "@/lib/stacks-session";
 import { stringAsciiCV, stringUtf8CV, uintCV, PostConditionMode } from "@stacks/transactions";
-import { STACKS_MAINNET } from "@stacks/network";
+import { STACKS_MAINNET, STACKS_TESTNET } from "@stacks/network";
 
-const CONTRACT_ADDRESS = "SP1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7M3CKVJJ";
-const STACKS_NETWORK = STACKS_MAINNET;
+const isMainnet = process.env.NEXT_PUBLIC_NETWORK === "mainnet";
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "SP1TN1ERKXEM2H9TKKWGPGZVNVNEKS92M7M3CKVJJ";
+const STACKS_NETWORK = isMainnet ? STACKS_MAINNET : STACKS_TESTNET;
 
 export default function RegisterForm() {
     const [name, setName] = useState("");
