@@ -27,7 +27,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
 
         try {
             await openContractCall({
-                network: "testnet",
+                network: isMainnet ? "mainnet" : "testnet",
                 contractAddress: CONTRACT_ADDRESS,
                 contractName: ESCROW_CONTRACT_NAME,
                 functionName: "create-quest",
@@ -97,7 +97,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                                 Transaction broadcasted. The agent will begin execution once funds are locked in escrow.
                             </p>
                             <a
-                                href={`https://explorer.hiro.so/txid/${txId}?chain=testnet`}
+                                href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="mt-2 px-5 py-2 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-lg text-sm font-medium transition-colors"
@@ -135,7 +135,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                                         className="input-field !pl-9"
                                     />
                                     <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                                        <span className="data-label">Testnet</span>
+                                        <span className="data-label">{isMainnet ? "Mainnet" : "Testnet"}</span>
                                     </div>
                                 </div>
                                 <p className="data-label mt-1">Minimum: {agent.price}</p>

@@ -28,7 +28,7 @@ export default function RegisterForm() {
 
         try {
             await openContractCall({
-                network: "testnet",
+                network: isMainnet ? "mainnet" : "testnet",
                 contractAddress: CONTRACT_ADDRESS,
                 contractName: "agent-registry",
                 functionName: "register-agent",
@@ -64,11 +64,11 @@ export default function RegisterForm() {
                     </div>
                     <h2 className="text-3xl font-bold text-white mb-3">Agent Registered!</h2>
                     <p className="text-zinc-500 text-sm mb-6 leading-relaxed">
-                        Your transaction has been broadcasted to the Stacks Testnet.
+                        Your transaction has been broadcasted to the Stacks {isMainnet ? "Mainnet" : "Testnet"}.
                         Once confirmed, your agent will appear in the Agent Directory.
                     </p>
                     <a
-                        href={`https://explorer.hiro.so/txid/${txId}?chain=testnet`}
+                        href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex px-5 py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-xl text-sm font-medium transition-colors"
