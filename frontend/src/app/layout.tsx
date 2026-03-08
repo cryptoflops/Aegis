@@ -33,7 +33,7 @@ export default function RootLayout({
       <head>
         <meta
           name="talentapp:project_verification"
-          content="PASTE_THE_EXACT_VALUE_FROM_TALENT_COPY_BUTTON"
+          content="8695c16e62c23814358a3a108643a1d2df482f83b22c53c2a422e1142fe8aa50958fbe16e8786aded19dc2f87a4f9f86c36b96d8d611256a806e739c76b120fa"
         />
       </head>
       <body
