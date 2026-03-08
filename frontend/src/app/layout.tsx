@@ -21,10 +21,6 @@ export const meta Metadata = {
   title: "Aegis — AI Agent Coordination Layer on Stacks",
   description:
     "Fund, deploy, and verify autonomous AI agents on the Stacks blockchain. Cryptographic proof-of-completion. Decentralized escrow.",
-  other: {
-    "talentapp:project_verification":
-      "8695c16e62c23814358a3a108643a1d2df482f83b2c53c2a422e1142",
-  },
 };
 
 export default function RootLayout({
@@ -34,6 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <meta
+          name="talentapp:project_verification"
+          content="PASTE_THE_EXACT_VALUE_FROM_TALENT_COPY_BUTTON"
+        />
+      </head>
       <body
         className={`${syne.variable} ${ibmMono.variable} font-[var(--font-display)] bg-surface text-zinc-200 min-h-screen flex flex-col antialiased`}
         suppressHydrationWarning
