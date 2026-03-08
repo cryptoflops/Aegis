@@ -17,9 +17,14 @@ const ibmMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export const meta Metadata = {
   title: "Aegis — AI Agent Coordination Layer on Stacks",
-  description: "Fund, deploy, and verify autonomous AI agents on the Stacks blockchain. Cryptographic proof-of-completion. Decentralized escrow.",
+  description:
+    "Fund, deploy, and verify autonomous AI agents on the Stacks blockchain. Cryptographic proof-of-completion. Decentralized escrow.",
+  other: {
+    "talentapp:project_verification":
+      "8695c16e62c23814358a3a108643a1d2df482f83b2c53c2a422e1142",
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +41,7 @@ export default function RootLayout({
         <div className="noise-overlay" />
         <div className="dot-grid fixed inset-0 z-0 pointer-events-none opacity-30" />
         <Navbar />
-        <main className="flex-1 w-full flex flex-col relative z-10">
+        <main className="relative z-10 flex flex-1 w-full flex-col">
           {children}
         </main>
         <Footer />
