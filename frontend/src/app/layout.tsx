@@ -17,10 +17,14 @@ const ibmMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-export const meta Metadata = {
+export const metadata: Metadata = {
   title: "Aegis — AI Agent Coordination Layer on Stacks",
   description:
     "Fund, deploy, and verify autonomous AI agents on the Stacks blockchain. Cryptographic proof-of-completion. Decentralized escrow.",
+  other: {
+    "talentapp:project_verification":
+      "8695c16e62c23814358a3a108643a1d2df482f83b22c53c2a422e1142fe8aa50958fbe16e8786aded19dc2f87a4f9f86c36b96d8d611256a806e739c76b120fa",
+  },
 };
 
 export default function RootLayout({
@@ -30,12 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <meta
-          name="talentapp:project_verification"
-          content="8695c16e62c23814358a3a108643a1d2df482f83b22c53c2a422e1142fe8aa50958fbe16e8786aded19dc2f87a4f9f86c36b96d8d611256a806e739c76b120fa"
-        />
-      </head>
+
       <body
         className={`${syne.variable} ${ibmMono.variable} font-[var(--font-display)] bg-surface text-zinc-200 min-h-screen flex flex-col antialiased`}
         suppressHydrationWarning
