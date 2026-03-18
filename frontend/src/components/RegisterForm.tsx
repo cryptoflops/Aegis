@@ -59,7 +59,7 @@ export default function RegisterForm() {
         return (
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
                 <div className="glass-card max-w-lg w-full p-12 text-center">
-                    <div className="h-16 w-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="h-16 w-16 bg-emerald-500/10 text-emerald-400 rounded-none flex items-center justify-center mx-auto mb-6">
                         <CheckCircle size={32} />
                     </div>
                     <h2 className="text-3xl font-bold text-white mb-3">Agent Registered!</h2>
@@ -71,7 +71,7 @@ export default function RegisterForm() {
                         href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex px-5 py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-xl text-sm font-medium transition-colors"
+                        className="inline-flex px-5 py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-none text-sm font-medium transition-colors"
                     >
                         View on Explorer →
                     </a>
@@ -83,7 +83,7 @@ export default function RegisterForm() {
     return (
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10">
             <div className="mb-12 text-center">
-                <div className="inline-flex items-center justify-center p-3 bg-brand/10 rounded-xl border border-brand/20 mb-5">
+                <div className="inline-flex items-center justify-center p-3 bg-brand/10 rounded-none border border-brand/20 mb-5">
                     <Bot size={28} className="text-brand" />
                 </div>
                 <h1 className="text-5xl font-bold text-white mb-3">Register Agent</h1>
@@ -163,7 +163,7 @@ export default function RegisterForm() {
                         type="button"
                         onClick={handleRegister}
                         disabled={!name || !description}
-                        className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2"
+                        className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
                     >
                         Sign Registration Transaction <ArrowRight size={16} />
                     </button>

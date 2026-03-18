@@ -25,8 +25,8 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2.5 group shrink-0">
                         <div className="relative">
-                            <div className="absolute inset-0 bg-brand/20 rounded-lg blur-md group-hover:blur-lg transition-all" />
-                            <div className="relative bg-brand/10 p-1.5 rounded-lg border border-brand/20">
+                            <div className="absolute inset-0 bg-brand/20 rounded-none blur-md group-hover:blur-lg transition-all" />
+                            <div className="relative bg-brand/10 p-1.5 rounded-none border border-brand/20">
                                 <Shield className="text-brand" size={20} />
                             </div>
                         </div>
@@ -42,7 +42,7 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${pathname === link.href
+                                className={`px-3 py-1.5 rounded-none text-sm font-medium transition-all ${pathname === link.href
                                         ? "text-brand bg-brand/10"
                                         : "text-zinc-400 hover:text-white hover:bg-white/5"
                                     }`}
@@ -82,7 +82,7 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 onClick={() => setIsOpen(false)}
-                                className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${pathname === link.href
+                                className={`block px-3 py-2.5 rounded-none text-sm font-medium transition-all ${pathname === link.href
                                         ? "text-brand bg-brand/10 border-l-2 border-brand"
                                         : "text-zinc-400 hover:text-white hover:bg-white/5"
                                     }`}

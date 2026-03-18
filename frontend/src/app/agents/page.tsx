@@ -57,10 +57,10 @@ export default function AgentsPage() {
                         className={`group glass-card scanline-hover bg-gradient-to-br ${agent.gradient} ${agent.accent} transition-all duration-400 hover:-translate-y-1 hover:shadow-2xl flex flex-col`}
                     >
                         <div className="flex justify-between items-start mb-5">
-                            <div className="h-10 w-10 rounded-lg bg-white/5 border border-border flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-none bg-white/5 border border-border flex items-center justify-center">
                                 {agent.icon}
                             </div>
-                            <span className="data-label px-2 py-0.5 bg-white/5 rounded-md border border-border">
+                            <span className="data-label px-2 py-0.5 bg-white/5 rounded-none border border-border">
                                 {agent.tier}
                             </span>
                         </div>
@@ -89,7 +89,7 @@ export default function AgentsPage() {
                             </div>
                             <Link
                                 href="/"
-                                className="px-4 py-2 bg-white/5 hover:bg-brand hover:text-white text-zinc-300 rounded-lg text-sm font-medium transition-all border border-border hover:border-brand flex items-center gap-1"
+                                className="px-4 py-2 bg-white/5 hover:bg-brand hover:text-white text-zinc-300 rounded-none text-sm font-medium transition-all border border-border hover:border-brand flex items-center gap-1"
                             >
                                 Dispatch <ArrowRight size={14} />
                             </Link>

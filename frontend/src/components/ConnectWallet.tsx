@@ -51,9 +51,9 @@ export default function ConnectWallet() {
         return (
             <button
                 onClick={disconnect}
-                className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-zinc-300 rounded-lg flex items-center gap-2 transition-all text-sm font-medium border border-border"
+                className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-zinc-300 rounded-none flex items-center gap-2 transition-all text-sm font-medium border border-border"
             >
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-dot" />
+                <span className="h-1.5 w-1.5 rounded-none bg-emerald-400 pulse-dot" />
                 <span className="font-[var(--font-mono)]">{shortAddress}</span>
             </button>
         );
@@ -62,7 +62,7 @@ export default function ConnectWallet() {
     return (
         <button
             onClick={connect}
-            className="btn-glow px-3.5 py-1.5 bg-brand hover:bg-brand-hover text-white rounded-lg flex items-center gap-2 transition-all text-sm font-semibold"
+            className="btn-glow px-3.5 py-1.5 bg-brand hover:bg-brand-hover text-white rounded-none flex items-center gap-2 transition-all text-sm font-semibold"
         >
             <Wallet size={14} />
             Connect

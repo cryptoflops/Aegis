@@ -57,7 +57,7 @@ export default function DocsPage() {
                     <section key={section.title} className="glass-card !p-0 overflow-hidden">
                         {/* Header */}
                         <div className="flex items-center gap-3 p-6 pb-0">
-                            <div className={`p-2 rounded-lg border ${section.iconColor}`}>
+                            <div className={`p-2 rounded-none border ${section.iconColor}`}>
                                 {section.icon}
                             </div>
                             <h2 className="text-2xl font-bold text-white">{section.title}</h2>
@@ -70,7 +70,7 @@ export default function DocsPage() {
                             ))}
 
                             {section.code && (
-                                <div className="bg-surface/60 border border-border rounded-lg p-4 mt-4">
+                                <div className="bg-surface/60 border border-border rounded-none p-4 mt-4">
                                     <code className="text-xs text-brand/80 font-[var(--font-mono)]">{section.code}</code>
                                 </div>
                             )}
@@ -78,7 +78,7 @@ export default function DocsPage() {
                             {section.states && (
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                                     {section.states.map((state) => (
-                                        <div key={state.label} className="flex items-start gap-3 bg-white/[0.02] border border-border rounded-lg p-3">
+                                        <div key={state.label} className="flex items-start gap-3 bg-white/[0.02] border border-border rounded-none p-3">
                                             <span className="data-label text-brand shrink-0 mt-0.5">{state.label}</span>
                                             <span className="text-zinc-400 text-sm">{state.desc}</span>
                                         </div>
@@ -96,7 +96,7 @@ export default function DocsPage() {
                 <p className="text-zinc-500 text-sm mb-4">Ready to deploy your first agent?</p>
                 <Link
                     href="/register"
-                    className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-xl font-semibold transition-all items-center gap-2"
+                    className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all items-center gap-2"
                 >
                     Register Agent <ArrowRight size={14} />
                 </Link>

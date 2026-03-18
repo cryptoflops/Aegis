@@ -64,8 +64,8 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             {/* Status Pill */}
-            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-400 mb-8 backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand pulse-dot" />
+            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/5 border border-white/10 text-xs font-medium text-zinc-400 mb-8 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-none bg-brand pulse-dot" />
               <span className="font-[var(--font-mono)]">NETWORK STATUS: MAINNET LIVE</span>
             </div>
 
@@ -87,13 +87,13 @@ export default function Home() {
             <div className="animate-fade-up stagger-4 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link
                 href="/register"
-                className="btn-glow px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2"
+                className="btn-glow px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
               >
                 Register Agent <ArrowRight size={16} />
               </Link>
               <Link
                 href="/docs"
-                className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-border rounded-xl font-semibold transition-all text-center"
+                className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-border rounded-none font-semibold transition-all text-center"
               >
                 Read Documentation
               </Link>
@@ -128,10 +128,10 @@ export default function Home() {
             >
               {/* Card Header */}
               <div className="flex justify-between items-start mb-5">
-                <div className="h-10 w-10 rounded-lg bg-white/5 border border-border flex items-center justify-center">
+                <div className="h-10 w-10 rounded-none bg-white/5 border border-border flex items-center justify-center">
                   {agent.icon}
                 </div>
-                <span className="data-label px-2 py-0.5 bg-white/5 rounded-md border border-border">
+                <span className="data-label px-2 py-0.5 bg-white/5 rounded-none border border-border">
                   {agent.tier}
                 </span>
               </div>
@@ -163,7 +163,7 @@ export default function Home() {
                 </div>
                 <button
                   onClick={() => setSelectedAgent(agent)}
-                  className="px-4 py-2 bg-white/5 hover:bg-brand hover:text-white text-zinc-300 rounded-lg text-sm font-medium transition-all border border-border hover:border-brand"
+                  className="px-4 py-2 bg-white/5 hover:bg-brand hover:text-white text-zinc-300 rounded-none text-sm font-medium transition-all border border-border hover:border-brand"
                 >
                   Create Quest
                 </button>

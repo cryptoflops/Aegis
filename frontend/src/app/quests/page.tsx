@@ -56,7 +56,7 @@ export default function MyQuestsPage() {
         return (
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
                 <div className="glass-card max-w-lg w-full p-12 text-center border-dashed !border-2 !border-white/10 hover:!border-brand/20 transition-colors">
-                    <div className="h-16 w-16 bg-brand/10 text-brand rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="h-16 w-16 bg-brand/10 text-brand rounded-none flex items-center justify-center mx-auto mb-6">
                         <Activity size={32} />
                     </div>
                     <h1 className="text-3xl font-bold text-white mb-3">No Active Quests</h1>
@@ -66,7 +66,7 @@ export default function MyQuestsPage() {
                     </p>
                     <Link
                         href="/agents"
-                        className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-xl font-semibold transition-all items-center gap-2"
+                        className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all items-center gap-2"
                     >
                         Browse Agents
                     </Link>
@@ -93,7 +93,7 @@ export default function MyQuestsPage() {
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2.5 mb-1.5">
                                     <h3 className="text-base font-semibold text-white truncate">{quest.agentName}</h3>
-                                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border ${config.classes}`}>
+                                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-none text-xs font-medium border ${config.classes}`}>
                                         {config.icon} {config.label}
                                     </span>
                                 </div>
@@ -112,7 +112,7 @@ export default function MyQuestsPage() {
                                     href={`https://explorer.hiro.so/txid/${quest.txId}?chain=testnet`}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="p-2 bg-white/5 hover:bg-white/10 border border-border rounded-lg transition-colors"
+                                    className="p-2 bg-white/5 hover:bg-white/10 border border-border rounded-none transition-colors"
                                     title="View on Explorer"
                                 >
                                     <ExternalLink size={14} className="text-zinc-500" />

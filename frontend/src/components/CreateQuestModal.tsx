@@ -66,13 +66,13 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4" onClick={onClose}>
             <div
-                className="bg-panel border border-border rounded-2xl shadow-2xl shadow-black/50 w-full max-w-lg overflow-hidden animate-fade-up"
+                className="bg-panel border border-border rounded-none shadow-2xl shadow-black/50 w-full max-w-lg overflow-hidden animate-fade-up"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header */}
                 <div className="flex justify-between items-center px-6 py-4 border-b border-border">
                     <div className="flex items-center gap-3">
-                        <div className="h-9 w-9 rounded-lg bg-white/5 border border-border flex items-center justify-center">
+                        <div className="h-9 w-9 rounded-none bg-white/5 border border-border flex items-center justify-center">
                             {agent.icon}
                         </div>
                         <div>
@@ -89,7 +89,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                 <div className="p-6">
                     {txId ? (
                         <div className="flex flex-col items-center justify-center text-center py-6 space-y-4">
-                            <div className="h-14 w-14 bg-brand/10 text-brand rounded-full flex items-center justify-center">
+                            <div className="h-14 w-14 bg-brand/10 text-brand rounded-none flex items-center justify-center">
                                 <Send size={24} />
                             </div>
                             <h4 className="text-xl font-bold text-white">Quest Dispatched!</h4>
@@ -100,7 +100,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                                 href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="mt-2 px-5 py-2 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-lg text-sm font-medium transition-colors"
+                                className="mt-2 px-5 py-2 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-none text-sm font-medium transition-colors"
                                 onClick={onClose}
                             >
                                 View on Explorer
@@ -144,7 +144,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                             <div className="pt-4 border-t border-border">
                                 <button
                                     type="submit"
-                                    className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover text-white rounded-xl font-semibold transition-all"
+                                    className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all"
                                 >
                                     Lock Funds & Dispatch Quest
                                 </button>

@@ -51,7 +51,7 @@
   background: rgba(10, 10, 15, 0.45);
   backdrop-filter: blur(24px) saturate(1.2);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
+  border-radius: 0;
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -112,7 +112,6 @@
 /* ─── Animated Gradient Orbs ─── */
 .orb {
   position: absolute;
-  border-radius: 50%;
   filter: blur(80px);
   opacity: 0.35;
   pointer-events: none;
@@ -283,7 +282,7 @@
   padding: 0.75rem 1rem;
   background: rgba(5, 5, 8, 0.8);
   border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
+  border-radius: 0;
   font-size: 0.875rem;
   color: #e4e4e7;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
