@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="docs/assets/logo.png" height="120" alt="Aegis Logo" />
+  <img src="docs/assets/logo_icon.png" height="120" alt="Aegis Icon" />
+  <br />
+  <img src="docs/assets/logo_text.png" height="40" alt="Aegis" style="filter: invert(1);" />
 </p>
 
 ## Overview

@@ -8,9 +8,9 @@ export default function Footer() {
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div className="flex items-center gap-3">
                         <img 
-                            src="/logo.png" 
+                            src="/logo_icon.png" 
                             alt="Aegis" 
-                            className="h-5 w-5 opacity-50 grayscale hover:grayscale-0 transition-all object-contain" 
+                            className="h-6 w-6 opacity-40 hover:opacity-100 transition-opacity object-contain" 
                         />
                         <span className="data-label">
                             Aegis — AI Agent Coordination Layer on Stacks
