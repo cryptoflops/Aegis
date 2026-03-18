@@ -87,13 +87,13 @@ export default function Home() {
             <div className="animate-fade-up stagger-4 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link
                 href="/register"
-                className="btn-glow px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2 sm:w-60"
+                className="btn-glow w-full sm:w-56 px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
               >
                 Register Agent <ArrowRight size={16} />
               </Link>
               <Link
                 href="/docs"
-                className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-border rounded-none font-semibold transition-all text-center flex items-center justify-center sm:w-60"
+                className="w-full sm:w-56 px-6 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-border rounded-none font-semibold transition-all flex items-center justify-center text-center"
               >
                 Read Documentation
               </Link>
