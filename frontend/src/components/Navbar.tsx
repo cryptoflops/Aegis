@@ -28,15 +28,15 @@ export default function Navbar() {
                             <img 
                                 src="/logo_icon.png" 
                                 alt="Aegis Icon" 
-                                className="relative h-10 w-10 object-contain" 
+                                className="relative h-11 w-11 object-contain" 
                             />
                         </div>
                         <img 
                             src="/logo_text.png" 
                             alt="Aegis" 
-                            className="h-6 object-contain opacity-100 transition-opacity" 
+                            className="h-9 object-contain opacity-100 transition-opacity" 
                         />
-                        <span className="hidden sm:block data-label text-brand/60 ml-[-4px] mt-0.5">v0.1</span>
+                        <span className="hidden sm:block data-label text-brand/60 ml-[-6px] mt-0.5">v0.1</span>
                     </Link>
 
                     {/* Desktop Links */}
