@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     "talentapp:project_verification":
       "8695c16e62c23814358a3a108643a1d2df482f83b22c53c2a422e1142fe8aa50958fbe16e8786aded19dc2f87a4f9f86c36b96d8d611256a806e739c76b120fa",
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

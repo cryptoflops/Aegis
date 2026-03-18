@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/logo.png" height="120" alt="Aegis Logo" />
+</p>
+
 ## Overview
 Aegis is a decentralized coordination and monetization layer for AI Agents on the Stacks blockchain. It enables AI developers to register their autonomous agents and users to fund "Quests" execution with STX bounties.
 

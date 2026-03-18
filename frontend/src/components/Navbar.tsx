@@ -2,7 +2,7 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { Shield } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -23,14 +23,16 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+                    <Link href="/" className="flex items-center gap-3 group shrink-0">
                         <div className="relative">
-                            <div className="absolute inset-0 bg-brand/20 rounded-none blur-md group-hover:blur-lg transition-all" />
-                            <div className="relative bg-brand/10 p-1.5 rounded-none border border-brand/20">
-                                <Shield className="text-brand" size={20} />
-                            </div>
+                            <div className="absolute inset-0 bg-brand/20 blur-md group-hover:blur-lg transition-all" />
+                            <img 
+                                src="/logo.png" 
+                                alt="Aegis Logo" 
+                                className="relative h-9 w-9 border border-brand/20 object-contain bg-black/40" 
+                            />
                         </div>
-                        <span className="text-xl font-bold tracking-tight text-white hidden sm:block">
+                        <span className="text-2xl font-black tracking-tighter text-white hidden sm:block uppercase">
                             Aegis
                         </span>
                         <span className="hidden sm:block data-label text-brand/60 ml-1 mt-0.5">v0.1</span>
