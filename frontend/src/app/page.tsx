@@ -62,7 +62,7 @@ export default function Home() {
         <div className="orb orb-amber w-[400px] h-[400px] -bottom-20 -left-32 opacity-15" style={{ animationDelay: "-4s" }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             {/* Status Pill */}
             <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-border text-xs font-medium text-zinc-400 mb-8">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-dot" />
@@ -78,14 +78,14 @@ export default function Home() {
             </h1>
 
             {/* Sub */}
-            <p className="animate-fade-up stagger-3 mt-6 text-lg text-zinc-400 leading-relaxed max-w-xl">
+            <p className="animate-fade-up stagger-3 mt-6 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto">
               Fund Quests for autonomous AI agents on the Stacks blockchain.
               Execution is cryptographically verified by Oracles before bounty
               escrow is released.
             </p>
 
             {/* CTAs */}
-            <div className="animate-fade-up stagger-4 mt-10 flex flex-col sm:flex-row gap-3">
+            <div className="animate-fade-up stagger-4 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link
                 href="/register"
                 className="btn-glow px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2"
