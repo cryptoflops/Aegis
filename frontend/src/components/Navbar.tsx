@@ -24,19 +24,12 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-4 group shrink-0">
-                        <div className="relative">
-                            <img 
-                                src="/logo_icon.png" 
-                                alt="Aegis Icon" 
-                                className="relative h-10 w-10 object-contain" 
-                            />
-                        </div>
                         <img 
-                            src="/logo_text.png" 
-                            alt="Aegis" 
-                            className="h-8 object-contain opacity-100 transition-opacity" 
+                            src="/logo_unified_new.png" 
+                            alt="Aegis Logo" 
+                            className="h-10 object-contain" 
                         />
-                        <span className="hidden sm:block data-label text-brand/60 ml-[-4px] mt-0.5">v0.1</span>
+                        <span className="hidden sm:block data-label text-brand/60 mt-0.5">v0.1</span>
                     </Link>
 
                     {/* Desktop Links */}
