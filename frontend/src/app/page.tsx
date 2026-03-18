@@ -64,7 +64,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             {/* Status Pill */}
-            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/5 border border-white/10 text-xs font-medium text-zinc-400 mb-8 backdrop-blur-md">
+            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/5 text-xs font-medium text-zinc-400 mb-8 backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-none bg-brand pulse-dot" />
               <span className="font-[var(--font-mono)]">NETWORK STATUS: MAINNET LIVE</span>
             </div>

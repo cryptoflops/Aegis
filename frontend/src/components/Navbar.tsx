@@ -25,7 +25,6 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-4 group shrink-0">
                         <div className="relative">
-                            <div className="absolute inset-0 bg-brand/20 blur-md group-hover:blur-lg transition-all" />
                             <img 
                                 src="/logo_icon.png" 
                                 alt="Aegis Icon" 
@@ -35,7 +34,7 @@ export default function Navbar() {
                         <img 
                             src="/logo_text.png" 
                             alt="Aegis" 
-                            className="h-6 object-contain hidden sm:block invert opacity-90 group-hover:opacity-100 transition-opacity" 
+                            className="h-6 object-contain opacity-100 transition-opacity" 
                         />
                         <span className="hidden sm:block data-label text-brand/60 ml-[-4px] mt-0.5">v0.1</span>
                     </Link>
