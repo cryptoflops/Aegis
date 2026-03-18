@@ -3,6 +3,8 @@ import { Syne, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WebGLBackground from "@/components/WebGLBackground";
+import MouseTracker from "@/components/MouseTracker";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -39,8 +41,10 @@ export default function RootLayout({
         className={`${syne.variable} ${ibmMono.variable} font-[var(--font-display)] bg-surface text-zinc-200 min-h-screen flex flex-col antialiased`}
         suppressHydrationWarning
       >
+        <WebGLBackground />
+        <MouseTracker />
         <div className="noise-overlay" />
-        <div className="dot-grid fixed inset-0 z-0 pointer-events-none opacity-30" />
+        <div className="dot-grid fixed inset-0 z-0 pointer-events-none opacity-20" />
         <Navbar />
         <main className="relative z-10 flex flex-1 w-full flex-col">
           {children}

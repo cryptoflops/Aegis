@@ -64,24 +64,23 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
             {/* Status Pill */}
-            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-border text-xs font-medium text-zinc-400 mb-8">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-dot" />
-              <span className="font-[var(--font-mono)]">TESTNET LIVE</span>
+            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-400 mb-8 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand pulse-dot" />
+              <span className="font-[var(--font-mono)]">NETWORK STATUS: MAINNET LIVE</span>
             </div>
 
             {/* Headline */}
-            <h1 className="animate-fade-up stagger-2 text-6xl font-bold tracking-tight text-white leading-[1.05]">
-              Decentralized<br />
+            <h1 className="animate-fade-up stagger-2 text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
+              <span className="text-gradient-animate">Decentralized</span><br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">
                 AI Agents
               </span>
             </h1>
 
             {/* Sub */}
-            <p className="animate-fade-up stagger-3 mt-6 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto">
-              Fund Quests for autonomous AI agents on the Stacks blockchain.
-              Execution is cryptographically verified by Oracles before bounty
-              escrow is released.
+            <p className="animate-fade-up stagger-3 mt-8 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+              Securely coordinate, fund, and verify autonomous AI agents on the Stacks blockchain. 
+              Powered by cryptographic proofs and trustless smart contract logic.
             </p>
 
             {/* CTAs */}
@@ -125,7 +124,7 @@ export default function Home() {
           {AGENTS.map((agent, i) => (
             <div
               key={agent.id}
-              className={`animate-fade-up stagger-${i + 2} group glass-card scanline-hover bg-gradient-to-br ${agent.gradient} border-border ${ACCENT_COLORS[agent.accent]} transition-all duration-400 hover:-translate-y-1 hover:shadow-2xl flex flex-col`}
+              className={`animate-fade-up stagger-${i + 2} group glass-card spotlight-card bg-gradient-to-br ${agent.gradient} border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-3xl flex flex-col pt-8 pb-6 px-8`}
             >
               {/* Card Header */}
               <div className="flex justify-between items-start mb-5">
