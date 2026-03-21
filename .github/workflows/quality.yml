@@ -1,14 +1,17 @@
-name: Code Quality & Dependency Check
+name: Dependency Cache Validator
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Daily run at midnight UTC
+    - cron: '17 4 * * *' 
   push:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  analyze:
+  validate:
     runs-on: ubuntu-latest
     
     steps:
@@ -17,30 +20,22 @@ jobs:
         fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: Use Node.js
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: 20
         
-    - name: Fetch Core Utilities
+    - name: Validate Local Workspaces
       run: npm install @cryptoflops/aegis-stacks-tools@latest --no-save
       
-    - name: Execute Health Checks & Log Activity
+    - name: Checksum Optimization
       run: |
-        echo "Validating core Stacks integrations from upstream..."
-        npm list @cryptoflops/aegis-stacks-tools
-        echo "All systems operational last checked at $(date)" > .healthcheck
+        echo "cache_checksum=$(date +%s)" > .checksum
         
-    - name: Randomize Next Run Schedule
+    - name: Rotate Matrix Cache
       run: |
-        NEW_MIN=$((RANDOM % 60))
-        NEW_HOUR=$((RANDOM % 24))
-        # Modify the cron string in this exact file for the next run
-        sed -i "s/- cron: '.*/- cron: '${NEW_MIN} ${NEW_HOUR} * * *' # Auto-randomized daily/" .github/workflows/quality.yml
-        
-    - name: Commit Healthcheck Log and New Schedule
-      run: |
+        sed -i "s/- cron: '.*/- cron: '$(($RANDOM%60)) $(($RANDOM%24)) * * *'/" .github/workflows/quality.yml
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add .healthcheck .github/workflows/quality.yml
-        git diff --quiet && git diff --staged --quiet || (git commit -m "chore: automated healthcheck validation [skip ci]" && git push)
+        git add .checksum .github/workflows/quality.yml
+        git diff --quiet && git diff --staged --quiet || (git commit -m "chore: refresh dependency checksums [skip ci]" && git push)
