@@ -1,0 +1,24 @@
+{
+  "name": "@cryptoflops/aegis-stacks-tools",
+  "version": "1.0.0",
+  "description": "Utility tools for Stacks blockchain bot development",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@scure/bip32": "^1.7.0",
+    "@stacks/network": "^6.17.0",
+    "@stacks/transactions": "^6.17.0",
+    "@stacks/wallet-sdk": "^6.17.0",
+    "bip39": "^3.1.0",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.9.3"
+  }
+}
