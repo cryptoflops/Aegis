@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ShieldCheck, Zap, ArrowRight, Activity, Terminal } from "lucide-react";
+import { ShieldCheck, Zap, ArrowRight, Terminal, Award, Star, Gem } from "lucide-react";
 
 const CreateQuestModal = dynamic(() => import("@/components/CreateQuestModal"), { ssr: false });
 
@@ -14,10 +14,13 @@ const AGENTS = [
     description: "Statically analyzes Clarity smart contracts for reentrancy, logic flaws, and access-control issues.",
     price: "0.1 STX / Quest",
     tier: "Pro",
+    tierClass: "tier-pro",
+    tierIcon: <Star size={10} />,
     icon: <ShieldCheck className="text-emerald-400" size={22} />,
     gradient: "from-emerald-500/10 via-transparent to-transparent",
     accent: "emerald",
-    stats: { successRate: "99.2%", completed: 142 }
+    accentColor: "#34d399",
+    stats: { successRate: 99.2, completed: 142 }
   },
   {
     id: 2,
@@ -25,10 +28,13 @@ const AGENTS = [
     description: "Monitors Stacks DEXs and lending protocols to execute arbitrage and yield strategies autonomously.",
     price: "0.5 STX / Quest",
     tier: "Enterprise",
+    tierClass: "tier-enterprise",
+    tierIcon: <Gem size={10} />,
     icon: <Zap className="text-amber-400" size={22} />,
     gradient: "from-amber-500/10 via-transparent to-transparent",
     accent: "amber",
-    stats: { successRate: "94.5%", completed: 89 }
+    accentColor: "#fbbf24",
+    stats: { successRate: 94.5, completed: 89 }
   },
   {
     id: 3,
@@ -36,18 +42,66 @@ const AGENTS = [
     description: "Extracts and normalizes specific event logs from target Stacks smart contracts on demand.",
     price: "0.2 STX / Quest",
     tier: "Basic",
+    tierClass: "tier-basic",
+    tierIcon: <Award size={10} />,
     icon: <Terminal className="text-sky-400" size={22} />,
     gradient: "from-sky-500/10 via-transparent to-transparent",
     accent: "sky",
-    stats: { successRate: "99.9%", completed: 1205 }
+    accentColor: "#38bdf8",
+    stats: { successRate: 99.9, completed: 1205 }
   }
 ];
 
-const ACCENT_COLORS: Record<string, string> = {
-  emerald: "group-hover:border-emerald-500/30 group-hover:shadow-emerald-500/5",
-  amber: "group-hover:border-amber-500/30 group-hover:shadow-amber-500/5",
-  sky: "group-hover:border-sky-500/30 group-hover:shadow-sky-500/5",
-};
+/* ─── Animated Counter Hook ─── */
+function useCountUp(target: number, duration = 2000, decimals = 0) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const start = performance.now();
+
+          const animate = (now: number) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setValue(Number((eased * target).toFixed(decimals)));
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration, decimals]);
+
+  return { value, ref };
+}
+
+function StatCounter({ target, suffix = "", prefix = "", decimals = 0, label }: {
+  target: number; suffix?: string; prefix?: string; decimals?: number; label: string;
+}) {
+  const { value, ref } = useCountUp(target, 2000, decimals);
+  return (
+    <div ref={ref} className="p-4 bg-white/[0.02] border border-border hover:border-brand/20 transition-colors">
+      <p className="text-2xl font-bold text-white tabular-nums">
+        {prefix}{value.toLocaleString()}{suffix}
+      </p>
+      <p className="data-label mt-1">{label}</p>
+    </div>
+  );
+}
 
 export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<any>(null);
@@ -63,28 +117,28 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-            {/* Status Pill */}
-            <div className="animate-fade-up stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/5 text-xs font-medium text-zinc-400 mb-8 backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-none bg-brand pulse-dot" />
-              <span className="font-[var(--font-mono)]">NETWORK STATUS: MAINNET LIVE</span>
-            </div>
 
             {/* Headline */}
-            <h1 className="animate-fade-up stagger-2 text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
+            <h1 className="animate-fade-up stagger-1 text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
               <span className="text-gradient-animate">Decentralized</span><br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">
                 AI Agents
               </span>
+              {/* Inline status dot */}
+              <span className="inline-flex items-center gap-2 ml-4 align-middle">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 pulse-dot-green" />
+                <span className="text-emerald-400 text-sm font-medium tracking-normal">LIVE</span>
+              </span>
             </h1>
 
             {/* Sub */}
-            <p className="animate-fade-up stagger-3 mt-8 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="animate-fade-up stagger-2 mt-8 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto">
               Securely coordinate, fund, and verify autonomous AI agents on the Stacks blockchain. 
               Powered by cryptographic proofs and trustless smart contract logic.
             </p>
 
-            {/* CTAs */}
-            <div className="animate-fade-up stagger-4 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
+            {/* CTAs - Primary filled, secondary outlined */}
+            <div className="animate-fade-up stagger-3 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link
                 href="/register"
                 className="btn-glow w-full sm:w-56 px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
@@ -93,7 +147,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/docs"
-                className="w-full sm:w-56 px-6 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-border rounded-none font-semibold transition-all flex items-center justify-center text-center"
+                className="w-full sm:w-56 px-6 py-3.5 bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all flex items-center justify-center text-center"
               >
                 Read Documentation
               </Link>
@@ -131,7 +185,8 @@ export default function Home() {
                 <div className="h-10 w-10 rounded-none bg-white/5 border border-border flex items-center justify-center">
                   {agent.icon}
                 </div>
-                <span className="data-label px-2 py-0.5 bg-white/5 rounded-none border border-border">
+                <span className={`tier-badge ${agent.tierClass}`}>
+                  {agent.tierIcon}
                   {agent.tier}
                 </span>
               </div>
@@ -142,30 +197,40 @@ export default function Home() {
                 {agent.description}
               </p>
 
-              {/* Stats */}
-              <div className="flex items-center gap-6 mb-6 text-sm">
-                <div>
-                  <span className="data-label">Success</span>
-                  <span className="block font-semibold text-zinc-200 mt-0.5">{agent.stats.successRate}</span>
+              {/* Stats Row with Progress Bar */}
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="data-label">Success Rate</span>
+                  <span className="text-sm font-semibold text-zinc-200 tabular-nums">{agent.stats.successRate}%</span>
                 </div>
-                <div className="w-px h-8 bg-border" />
-                <div>
-                  <span className="data-label">Quests</span>
-                  <span className="block font-semibold text-zinc-200 mt-0.5">{agent.stats.completed}</span>
+                <div className="progress-bar-track">
+                  <div
+                    className="progress-bar-fill"
+                    style={{
+                      width: `${agent.stats.successRate}%`,
+                      background: `linear-gradient(90deg, ${agent.accentColor}66, ${agent.accentColor})`,
+                    }}
+                  />
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                  <div>
+                    <span className="data-label">Quests</span>
+                    <span className="block font-semibold text-zinc-200 text-sm mt-0.5 tabular-nums">{agent.stats.completed.toLocaleString()}</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="data-label">Fee</span>
+                    <span className="block font-semibold text-zinc-200 text-sm mt-0.5">{agent.price}</span>
+                  </div>
                 </div>
               </div>
 
               {/* Card Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
-                <div>
-                  <span className="data-label">Bounty</span>
-                  <span className="block font-bold text-white text-sm mt-0.5">{agent.price}</span>
-                </div>
+              <div className="pt-4 border-t border-border mt-auto">
                 <button
                   onClick={() => setSelectedAgent(agent)}
-                  className="px-4 py-2 bg-white/5 hover:bg-brand hover:text-white text-zinc-300 rounded-none text-sm font-medium transition-all border border-border hover:border-brand"
+                  className="w-full py-2.5 bg-white/5 hover:bg-brand hover:text-white text-zinc-300 rounded-none text-sm font-medium transition-all border border-border hover:border-brand flex items-center justify-center gap-2"
                 >
-                  Create Quest
+                  Create Quest <ArrowRight size={14} />
                 </button>
               </div>
             </div>
@@ -173,21 +238,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Stats Ribbon ─── */}
+      {/* ─── Stats Ribbon (animated count-up) ─── */}
       <section className="border-t border-b border-border bg-panel/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "1,436", label: "Quests Completed" },
-              { value: "99.4%", label: "Oracle Accuracy" },
-              { value: "147", label: "Active Agents" },
-              { value: "2,891 STX", label: "Total Bounties Paid" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-2xl font-bold text-white">{stat.value}</p>
-                <p className="data-label mt-1">{stat.label}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <StatCounter target={1436} label="Quests Completed" />
+            <StatCounter target={99.4} suffix="%" decimals={1} label="Oracle Accuracy" />
+            <StatCounter target={147} label="Active Agents" />
+            <StatCounter target={2891} prefix="" suffix=" STX" label="Total Bounties Paid" />
           </div>
         </div>
       </section>

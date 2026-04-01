@@ -2,7 +2,6 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -36,6 +35,10 @@ export default function Navbar() {
                             className="h-8 object-contain opacity-100 transition-opacity" 
                         />
                         <span className="hidden sm:block data-label text-brand/60 ml-3">v0.1</span>
+                        <span className="hidden sm:block network-badge mainnet ml-2">
+                            <span className="h-1 w-1 rounded-full bg-emerald-400 inline-block" />
+                            Mainnet
+                        </span>
                     </Link>
 
                     {/* Desktop Links */}
