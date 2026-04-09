@@ -1,9 +1,8 @@
 {
-  "name": "aegis",
+  "name": "aegis-sdk",
   "version": "0.1.0",
   "description": "Decentralized coordination layer for autonomous AI agents on Stacks",
   "type": "module",
-  "private": true,
   "scripts": {
     "test": "vitest run",
     "test:report": "vitest run -- --coverage --costs",
