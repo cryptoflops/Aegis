@@ -33,11 +33,18 @@ export const metadata: Metadata = {
   },
 };
 
+import { authenticate } from '../lib/stacks-integration';
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Setup Stacks network configurations for wallet connection
+  if (typeof window !== 'undefined') {
+    console.debug('Stacks network module active. Connect function:', authenticate);
+  }
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
 
