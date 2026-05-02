@@ -7,3 +7,4 @@
 - Investigated rendering jitter on mobile layout.
 - Fixed a minor typo in the internal documentation.
 - Looking into potential race conditions during state hydration.
+- Cleaned up some dead code in the utility helpers.
