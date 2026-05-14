@@ -19,3 +19,4 @@
 - Fixed a minor typo in the internal documentation.
 - Investigated rendering jitter on mobile layout.
 - Investigated rendering jitter on mobile layout.
+- Adjusting padding to align with design specs.
