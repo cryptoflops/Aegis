@@ -17,3 +17,4 @@
 - Verified backward compatibility with older Stacks API responses.
 - Verified backward compatibility with older Stacks API responses.
 - Fixed a minor typo in the internal documentation.
+- Investigated rendering jitter on mobile layout.
