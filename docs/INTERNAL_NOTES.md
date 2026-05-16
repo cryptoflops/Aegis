@@ -21,3 +21,4 @@
 - Investigated rendering jitter on mobile layout.
 - Adjusting padding to align with design specs.
 - Pushing work-in-progress state before context switch.
+- Investigated rendering jitter on mobile layout.
