@@ -1,8 +1,12 @@
 {
   "name": "aegis-sdk",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Decentralized coordination layer for autonomous AI agents on Stacks",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptoflops/Aegis.git"
+  },
   "scripts": {
     "test": "vitest run",
     "test:report": "vitest run -- --coverage --costs",
@@ -12,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@stacks/clarinet-sdk": "^3.9.0",
+    "@stacks/connect": "^8.2.6",
     "@stacks/transactions": "^7.2.0",
     "@types/node": "^24.4.0",
     "chokidar-cli": "^3.0.0",
