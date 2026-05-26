@@ -7,11 +7,26 @@ export async function POST(request: Request) {
         const body = await request.text();
         const signature = request.headers.get('x-hiro-signature');
         
-        // Parse payload (using any to support both v1 and v2 SDK structures)
-        const payload: any = JSON.parse(body);
-        
+        if (!body) {
+            console.log('[Chainhook] Empty request body received');
+            return NextResponse.json({ message: 'Empty body' }, { status: 200 });
+        }
+
+        let payload: any;
+        try {
+            payload = JSON.parse(body);
+        } catch (parseError) {
+            console.warn('[Chainhook] Failed to parse JSON body:', parseError);
+            return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
+        }
+
+        if (!payload) {
+            console.warn('[Chainhook] Null JSON payload received');
+            return NextResponse.json({ message: 'Null payload' }, { status: 200 });
+        }
+
         // Hiro v2: payload.event.network | Hiro v1: payload.network
-        const network = payload.event?.network || payload.network || 'mainnet';
+        const network = payload?.event?.network || payload?.network || 'mainnet';
         
         const secret = network === 'mainnet' 
             ? process.env.HIRO_CHAINHOOK_SECRET_MAINNET 
@@ -32,22 +47,23 @@ export async function POST(request: Request) {
         
         // 3. Process transactions
         // Hiro v2 structure: payload.event.apply | Hiro v1: payload.apply
-        const applyBlocks = payload.event?.apply || payload.apply || [];
-        const transactions = applyBlocks[0]?.transactions || [];
+        const applyBlocks = payload?.event?.apply || payload?.apply || [];
+        const transactions = applyBlocks?.[0]?.transactions || [];
         
         transactions.forEach((tx: any) => {
-            const events = tx.metadata?.receipt?.events || [];
+            const events = tx?.metadata?.receipt?.events || [];
             events.forEach((event: any) => {
-                if (event.type === 'SmartContractEvent') {
-                    console.log(`[Chainhook] Event: ${event.data.topic} from ${event.data.contract_identifier}`);
+                if (event?.type === 'SmartContractEvent') {
+                    console.log(`[Chainhook] Event: ${event?.data?.topic} from ${event?.data?.contract_identifier}`);
                 }
             });
         });
 
         return NextResponse.json({ processed: true }, { status: 200 });
     } catch (error) {
-        console.error('[Chainhook] Error:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        console.error('[Chainhook] Error processing webhook:', error);
+        // Return 200 on processing errors to prevent Hiro from deactivating the webhook
+        return NextResponse.json({ error: 'Internal processing error' }, { status: 200 });
     }
 }
 
