@@ -4,7 +4,8 @@ description = 'Decentralized coordination layer for autonomous AI agents on Stac
 authors = ['cryptoflops']
 telemetry = false
 cache_dir = './.cache'
-requirements = []
+[[project.requirements]]
+contract_id = 'SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard'
 [contracts.agent-evaluator-oracle]
 path = 'contracts/agent-evaluator-oracle.clar'
 clarity_version = 4
@@ -22,6 +23,31 @@ epoch = 'latest'
 
 [contracts.subscription-manager]
 path = 'contracts/subscription-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.aegis-token]
+path = 'contracts/aegis-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.questdao-token]
+path = 'contracts/questdao-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.gmonstacks-token]
+path = 'contracts/gmonstacks-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.builderbadge-token]
+path = 'contracts/builderbadge-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.questplatform-token]
+path = 'contracts/questplatform-token.clar'
 clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
