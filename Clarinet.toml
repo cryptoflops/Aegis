@@ -50,6 +50,16 @@ epoch = 'latest'
 path = 'contracts/questplatform-token.clar'
 clarity_version = 4
 epoch = 'latest'
+
+[contracts.jackpot-token]
+path = 'contracts/jackpot-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.batch-mint-helper-v2]
+path = 'contracts/batch-mint-helper-v2.clar'
+clarity_version = 4
+epoch = 'latest'
 [repl.analysis]
 passes = [
     'call_checker',
