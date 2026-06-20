@@ -12,7 +12,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         with:
           # simple: these monorepo roots have no publishable npm build at the
           # root (the publishable SDK lives in a separate repo), so we only
