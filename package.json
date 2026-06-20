@@ -1,7 +1,10 @@
 {
-  "name": "aegis-sdk",
+  "name": "@cryptoflops/aegis-core",
   "version": "1.0.1",
   "description": "Decentralized coordination layer for autonomous AI agents on Stacks",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "repository": {
     "type": "git",
@@ -22,6 +25,5 @@
     "chokidar-cli": "^3.0.0",
     "vitest": "^4.0.7",
     "vitest-environment-clarinet": "^3.0.0"
-  },
-  "private": true
+  }
 }
