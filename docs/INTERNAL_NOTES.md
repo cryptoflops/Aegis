@@ -470,3 +470,4 @@
 - Tested STX transfer flow on testnet. Post-conditions correctly prevent over-spending.
 - Tested STX transfer flow on testnet. Post-conditions correctly prevent over-spending.
 - Reviewed Clarity contract read-only functions. The response parsing handles optional values correctly.
+- Contract calls via openContractCall work fine but the transaction broadcast can take 10-30 blocks.
