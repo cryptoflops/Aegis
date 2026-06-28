@@ -686,3 +686,4 @@
 - The wallet connection flow via @stacks/connect works well on desktop but needs mobile fallback.
 - The Hiro wallet extension detection is synchronous which is nice compared to injected EVM providers.
 - Tested STX transfer flow on testnet. Post-conditions correctly prevent over-spending.
+- Tested STX transfer flow on testnet. Post-conditions correctly prevent over-spending.
