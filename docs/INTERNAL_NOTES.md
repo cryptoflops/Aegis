@@ -1125,3 +1125,4 @@
 - Contract calls via openContractCall work fine but the transaction broadcast can take 10-30 blocks.
 - Contract calls via openContractCall work fine but the transaction broadcast can take 10-30 blocks.
 - Investigated rendering jitter on mobile layout during wallet connection state changes.
+- Investigated rendering jitter on mobile layout during wallet connection state changes.
