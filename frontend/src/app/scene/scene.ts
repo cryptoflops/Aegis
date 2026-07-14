@@ -249,7 +249,7 @@ export class WebGLBackground {
                 uHoverIntensity: { value: 0 },
                 uMorphAmount: { value: 0.5 },
                 uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-                uColor1: { value: new THREE.Color('#FF5500') }, // Brand Orange
+                uColor1: { value: new THREE.Color('#E8550A') }, // Brand Orange
                 uColor2: { value: new THREE.Color('#DB2777') },
                 uColor3: { value: new THREE.Color('#6B21A8') }  // Purple
             },

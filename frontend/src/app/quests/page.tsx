@@ -102,7 +102,7 @@ export default function MyQuestsPage() {
         </div>
         <Link
           href="/quests/new"
-          className="btn-glow shrink-0 px-5 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center gap-2"
+          className="btn-glow shrink-0 px-5 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center gap-2"
         >
           <Plus size={16} /> New Quest
         </Link>

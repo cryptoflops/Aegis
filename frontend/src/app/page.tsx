@@ -58,7 +58,7 @@ export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<AgentData | null>(null);
 
   return (
-    <div className="flex flex-col">
+    <>
 
       {/* ─── Hero ─── */}
       <section className="relative overflow-hidden">
@@ -70,7 +70,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
 
             {/* Headline */}
-            <h1 className="animate-fade-up stagger-1 text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
+            <h1 className="animate-fade-up stagger-1 text-6xl font-extrabold tracking-tight text-white leading-[1.05]" style={{ textWrap: "balance" }}>
               <span className="text-gradient-animate">Decentralized</span><br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">
                 AI Agents
@@ -83,7 +83,7 @@ export default function Home() {
             </h1>
 
             {/* Sub */}
-            <p className="animate-fade-up stagger-2 mt-8 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="animate-fade-up stagger-2 mt-8 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto" style={{ textWrap: "balance" }}>
               Securely coordinate, fund, and verify autonomous AI agents on the Stacks blockchain.
               Powered by cryptographic proofs and trustless smart contract logic.
             </p>
@@ -92,13 +92,13 @@ export default function Home() {
             <div className="animate-fade-up stagger-3 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link
                 href="/quests/new"
-                className="btn-glow w-full sm:w-56 px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
+                className="btn-glow w-full sm:w-56 px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 Launch a Quest <ArrowRight size={16} />
               </Link>
               <Link
                 href="/agents"
-                className="w-full sm:w-56 px-6 py-3.5 bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all flex items-center justify-center text-center"
+                className="w-full sm:w-56 px-6 py-3.5 bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center text-center"
               >
                 Explore Agents
               </Link>
@@ -282,13 +282,13 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/quests/new"
-            className="btn-glow px-8 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
+            className="btn-glow px-8 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
           >
             Launch a Quest <ArrowRight size={16} />
           </Link>
           <Link
             href="/register"
-            className="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all flex items-center justify-center"
+            className="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center"
           >
             Register Agent
           </Link>
@@ -299,6 +299,6 @@ export default function Home() {
       {selectedAgent && (
         <CreateQuestModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} />
       )}
-    </div>
+    </>
   );
 }

@@ -16,12 +16,13 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
     const [prompt, setPrompt] = useState("");
     const [bounty, setBounty] = useState(parseFloat(agent.price));
     const [txId, setTxId] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const userSession = getUserSession();
         if (!userSession.isUserSignedIn()) {
-            alert("Please connect your wallet first!");
+            setError("Please connect your wallet first.");
             return;
         }
 
@@ -64,7 +65,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4" onClick={onClose}>
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md p-4" onClick={onClose}>
             <div
                 className="bg-panel border border-border rounded-none shadow-2xl shadow-black/50 w-full max-w-lg overflow-hidden animate-fade-up"
                 onClick={(e) => e.stopPropagation()}
@@ -100,7 +101,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                                 href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="mt-2 px-5 py-2 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-none text-sm font-medium transition-colors"
+                                className="mt-2 px-5 py-2 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-none text-sm font-medium transition-all active:scale-[0.98]"
                                 onClick={onClose}
                             >
                                 View on Explorer
@@ -108,12 +109,17 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-5">
+                            {error && (
+                                <div className="bg-red-500/10 border border-red-500/20 px-4 py-3 text-red-400 text-sm">
+                                    {error}
+                                </div>
+                            )}
                             <div className="space-y-1.5">
                                 <label className="data-label">Quest Prompt / Instruction</label>
                                 <textarea
                                     required
                                     value={prompt}
-                                    onChange={(e) => setPrompt(e.target.value)}
+                                    onChange={(e) => { setPrompt(e.target.value); setError(null); }}
                                     placeholder="E.g. Analyze the contract at SP... for reentrancy vulnerabilities and return a JSON report."
                                     className="input-field h-28 resize-none"
                                 />
@@ -144,7 +150,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                             <div className="pt-4 border-t border-border">
                                 <button
                                     type="submit"
-                                    className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all"
+                                    className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98]"
                                 >
                                     Lock Funds & Dispatch Quest
                                 </button>

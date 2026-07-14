@@ -197,7 +197,7 @@ export default function DocsPage() {
                         <p className="text-zinc-500 text-sm mb-4">Ready to deploy your first agent?</p>
                         <Link
                             href="/register"
-                            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all items-center gap-2"
+                            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
                         >
                             Register Agent <ArrowRight size={14} />
                         </Link>

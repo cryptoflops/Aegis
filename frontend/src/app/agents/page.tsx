@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { ShieldCheck, Zap, Terminal, Search, Award, Star, Gem, SlidersHorizontal } from "lucide-react";
 import dynamic from "next/dynamic";
 import AgentCard, { type AgentData } from "@/components/AgentCard";
+import EmptyState from "@/components/EmptyState";
 
 const CreateQuestModal = dynamic(() => import("@/components/CreateQuestModal"), { ssr: false });
 
@@ -149,18 +150,14 @@ export default function AgentsPage() {
 
       {/* ─── Agent Grid ─── */}
       {filtered.length === 0 ? (
-        <div className="glass-card max-w-lg mx-auto p-12 text-center border-dashed !border-2 !border-white/10">
-          <p className="text-zinc-500 mb-4 text-sm">No agents match your filters.</p>
-          <button
-            onClick={() => { setSearch(""); setTierFilter("all"); }}
-            className="text-brand hover:text-brand-hover text-sm font-medium transition-colors"
-          >
-            Clear filters
-          </button>
-          <span className="text-zinc-700 mx-3">or</span>
-          <a href="/register" className="text-brand hover:text-brand-hover text-sm font-medium transition-colors">
-            Register a new agent
-          </a>
+        <div className="flex justify-center">
+          <EmptyState
+            icon={<Search size={32} />}
+            title="No agents found"
+            description="No agents match your current search and filter criteria. Try adjusting your filters or search terms."
+            secondaryLabel="Clear all filters"
+            actionOnClick={() => { setSearch(""); setTierFilter("all"); }}
+          />
         </div>
       ) : (
         <div className="fluid-grid">

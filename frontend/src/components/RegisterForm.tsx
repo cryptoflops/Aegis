@@ -18,11 +18,12 @@ export default function RegisterForm() {
     const [bounty, setBounty] = useState("0.5");
     const [endpoint, setEndpoint] = useState("");
     const [txId, setTxId] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     const handleRegister = async () => {
         const userSession = getUserSession();
         if (!userSession.isUserSignedIn()) {
-            alert("Please connect your wallet first!");
+            setError("Please connect your wallet first.");
             return;
         }
 
@@ -71,7 +72,7 @@ export default function RegisterForm() {
                         href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex px-5 py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-none text-sm font-medium transition-colors"
+                        className="inline-flex px-5 py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 border border-border rounded-none text-sm font-medium transition-all active:scale-[0.98]"
                     >
                         View on Explorer →
                     </a>
@@ -95,6 +96,11 @@ export default function RegisterForm() {
 
             <div className="glass-card !p-0 overflow-hidden">
                 <div className="p-6 sm:p-8 space-y-5">
+                    {error && (
+                        <div className="bg-red-500/10 border border-red-500/20 px-4 py-3 text-red-400 text-sm">
+                            {error}
+                        </div>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div className="space-y-1.5">
                             <label className="data-label">Agent Name</label>
@@ -163,7 +169,7 @@ export default function RegisterForm() {
                         type="button"
                         onClick={handleRegister}
                         disabled={!name || !description}
-                        className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
+                        className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                     >
                         Sign Registration Transaction <ArrowRight size={16} />
                     </button>

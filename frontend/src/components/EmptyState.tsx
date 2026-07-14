@@ -38,7 +38,7 @@ export default function EmptyState({
         {actionLabel && actionHref && (
           <Link
             href={actionHref}
-            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all items-center gap-2"
+            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
           >
             {actionLabel} <ArrowRight size={14} />
           </Link>
@@ -46,7 +46,7 @@ export default function EmptyState({
         {actionLabel && actionOnClick && (
           <button
             onClick={actionOnClick}
-            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all items-center gap-2"
+            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
           >
             {actionLabel} <ArrowRight size={14} />
           </button>
@@ -54,7 +54,7 @@ export default function EmptyState({
         {secondaryLabel && secondaryHref && (
           <Link
             href={secondaryHref}
-            className="inline-flex px-6 py-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-medium transition-all items-center justify-center"
+            className="inline-flex px-6 py-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-medium transition-all active:scale-[0.98] items-center justify-center"
           >
             {secondaryLabel}
           </Link>

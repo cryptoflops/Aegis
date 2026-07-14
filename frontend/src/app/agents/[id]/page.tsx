@@ -119,7 +119,7 @@ export default function AgentDetailPage() {
           </p>
           <Link
             href="/agents"
-            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all items-center gap-2"
+            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
           >
             <ArrowLeft size={14} /> Browse Agents
           </Link>
@@ -210,13 +210,13 @@ export default function AgentDetailPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => setShowQuestModal(true)}
-                  className="btn-glow px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all flex items-center justify-center gap-2"
+                  className="btn-glow px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                 >
                   Create Quest with {agent.name.split(" ").slice(0, 2).join(" ")}
                 </button>
                 <Link
                   href="/docs#architecture"
-                  className="px-6 py-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-medium transition-all flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                 >
                   View Docs
                 </Link>

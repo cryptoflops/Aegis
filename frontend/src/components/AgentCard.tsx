@@ -85,14 +85,14 @@ export default function AgentCard({
       <div className="pt-4 border-t border-border mt-auto flex flex-col gap-2">
         <Link
           href={`/agents/${agent.id}`}
-          className="w-full py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 rounded-none text-sm font-medium transition-all border border-border hover:border-zinc-500 flex items-center justify-center gap-2"
+          className="w-full py-2.5 bg-white/5 hover:bg-white/10 text-zinc-300 rounded-none text-sm font-medium transition-all active:scale-[0.98] border border-border hover:border-zinc-500 flex items-center justify-center gap-2"
         >
           Inspect Agent <ExternalLink size={13} />
         </Link>
         {onQuest && (
           <button
             onClick={() => onQuest(agent)}
-            className="w-full py-2.5 bg-brand hover:bg-brand-hover text-white rounded-none text-sm font-semibold transition-all flex items-center justify-center gap-2"
+            className="w-full py-2.5 bg-brand hover:bg-brand-hover text-white rounded-none text-sm font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
           >
             Create Quest <ArrowRight size={14} />
           </button>

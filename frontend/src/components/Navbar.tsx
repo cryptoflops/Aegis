@@ -46,7 +46,7 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`px-3 py-1.5 rounded-none text-sm font-medium transition-all ${pathname === link.href
+                                className={`px-3 py-1.5 rounded-none text-sm font-medium transition-all active:scale-[0.98] ${pathname === link.href
                                         ? "text-brand bg-brand/10"
                                         : "text-zinc-400 hover:text-white hover:bg-white/5"
                                     }`}
