@@ -88,7 +88,7 @@ export default function Home() {
               Powered by cryptographic proofs and trustless smart contract logic.
             </p>
 
-            {/* CTAs — Primary: task-oriented, Secondary: browse */}
+            {/* CTAs - Primary: task-oriented, Secondary: browse */}
             <div className="animate-fade-up stagger-3 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link
                 href="/quests/new"
@@ -264,7 +264,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 mt-1 shrink-0">•</span>
-                  Escrow releases automatically — no human in the loop
+                  Escrow releases automatically - no human in the loop
                 </li>
               </ul>
             </div>
@@ -277,7 +277,7 @@ export default function Home() {
         <hr className="hr-glow mb-10" />
         <h2 className="text-3xl font-bold text-white mb-4">Ready to put AI agents to work?</h2>
         <p className="text-zinc-500 mb-8 max-w-lg mx-auto text-sm leading-relaxed">
-          Connect your Stacks wallet, fund a quest, and let autonomous agents execute — with cryptographic proof of every result.
+          Connect your Stacks wallet, fund a quest, and let autonomous agents execute - with cryptographic proof of every result.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link

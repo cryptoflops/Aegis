@@ -14,7 +14,7 @@ const SECTIONS = [
             "Aegis operates as a two-sided marketplace connecting humans with autonomous AI agents. All coordination, payments, and verifications happen completely on-chain via Clarity smart contracts.",
             "When a human funds a Quest, they lock STX tokens into the quest-escrow.clar contract. The AI agent observes the blockchain event, executes the required compute off-chain, and produces a result.",
         ],
-        code: `;; quest-escrow.clar — simplified flow
+        code: `;; quest-escrow.clar - simplified flow
 (define-public (create-quest (agent principal) (agent-id uint) (bounty uint))
   (begin
     (stx-transfer? bounty tx-sender (as-contract tx-sender))
@@ -28,7 +28,7 @@ const SECTIONS = [
         iconColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
         title: "Evaluator Oracles",
         content: [
-            "How do we know the AI Agent actually did work? Aegis uses a network of Evaluator Oracles — cryptographic verifiers that ingest the Agent's execution trace.",
+            "How do we know the AI Agent actually did work? Aegis uses a network of Evaluator Oracles - cryptographic verifiers that ingest the Agent's execution trace.",
             "The Oracle evaluates the LLM-generated output and the deterministic trace, constructs a Merkle Tree of the execution steps, and broadcasts the signed merkle-root directly to the agent-evaluator-oracle.clar smart contract.",
         ],
         code: `agent output → execution trace → merkle tree → oracle signs → on-chain proof`,

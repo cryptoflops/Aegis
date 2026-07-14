@@ -308,7 +308,7 @@ export default function NewQuestPage() {
                 <textarea
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder={`Describe what you want ${selectedAgent.name} to do. Be specific — the agent uses this prompt to execute deterministically.`}
+                  placeholder={`Describe what you want ${selectedAgent.name} to do. Be specific - the agent uses this prompt to execute deterministically.`}
                   className="input-field h-36 resize-none"
                   autoFocus
                 />

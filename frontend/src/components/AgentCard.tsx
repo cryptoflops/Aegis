@@ -81,7 +81,7 @@ export default function AgentCard({
         </div>
       </div>
 
-      {/* Card Footer — Two CTAs */}
+      {/* Card Footer - Two CTAs */}
       <div className="pt-4 border-t border-border mt-auto flex flex-col gap-2">
         <Link
           href={`/agents/${agent.id}`}

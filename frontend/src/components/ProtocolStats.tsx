@@ -72,7 +72,7 @@ function StatWithData({ stat }: { stat: Stat }) {
 function StatEmpty({ stat }: { stat: Stat }) {
   return (
     <div className="p-4 bg-white/[0.02] border border-border hover:border-brand/20 transition-colors">
-      <p className="text-sm text-zinc-600 font-medium">—</p>
+      <p className="text-sm text-zinc-600 font-medium">-</p>
       <p className="data-label mt-1">{stat.label}</p>
     </div>
   );

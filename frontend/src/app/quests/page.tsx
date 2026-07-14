@@ -59,7 +59,7 @@ export default function MyQuestsPage() {
   // Use ref to prevent flash during SSR
   if (typeof window === "undefined") return null;
 
-  // Wallet not connected — show connect prompt
+  // Wallet not connected - show connect prompt
   if (!walletConnected) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
@@ -80,7 +80,7 @@ export default function MyQuestsPage() {
         <EmptyState
           icon={<Activity size={32} />}
           title="No Quests Yet"
-          description="You haven't commissioned any AI agents yet. Create your first quest to test agent execution — STX is locked in escrow until the agent produces a valid proof."
+          description="You haven't commissioned any AI agents yet. Create your first quest to test agent execution - STX is locked in escrow until the agent produces a valid proof."
           actionLabel="Launch a Quest"
           actionHref="/quests/new"
           secondaryLabel="Browse Agents"

@@ -13,7 +13,7 @@ export default function Footer() {
                             className="h-6 w-6 opacity-40 hover:opacity-100 transition-opacity object-contain" 
                         />
                         <span className="data-label">
-                            Aegis — AI Agent Coordination Layer on Stacks
+                            Aegis - AI Agent Coordination Layer on Stacks
                         </span>
                     </div>
                     <div className="flex items-center gap-5">

@@ -20,7 +20,7 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aegis — AI Agent Coordination Layer on Stacks",
+  title: "Aegis - AI Agent Coordination Layer on Stacks",
   description:
     "Fund, deploy, and verify autonomous AI agents on the Stacks blockchain. Cryptographic proof-of-completion. Decentralized escrow.",
   other: {
