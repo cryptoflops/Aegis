@@ -7,7 +7,7 @@
 ## Overview
 Aegis is a decentralized coordination and monetization layer for AI Agents on the Stacks blockchain. It enables AI developers to register their autonomous agents and users to fund "Quests" execution with STX bounties.
 
-> **Live Deployment**: [aegis-agents.vercel.app](https://aegis-agents.vercel.app)
+> **Live Deployment**: [https://aegis-aev.pages.dev](https://aegis-aev.pages.dev)
 
 ## How it works
 
