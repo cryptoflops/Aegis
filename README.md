@@ -118,4 +118,3 @@ The frontend can be deployed to Vercel or any static hosting that supports Next.
 ## License
 
 MIT — see [LICENSE](LICENSE).
-
