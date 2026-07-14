@@ -586,3 +586,21 @@
   color: #fbbf24;
   border: 1px solid rgba(251, 191, 36, 0.2);
 }
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .pulse-dot, .pulse-dot-green { animation: none !important; }
+  .orb { animation: none !important; opacity: 0.15; }
+}
+
+/* ─── Focus Visible ─── */
+*:focus-visible {
+  outline: 2px solid #FF5500;
+  outline-offset: 2px;
+  border-radius: 0;
+}

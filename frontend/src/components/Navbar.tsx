@@ -25,13 +25,13 @@ export default function Navbar() {
                     <Link href="/" className="flex items-center group shrink-0">
                         <img 
                             src="/logo_icon.png" 
-                            alt="Aegis Icon" 
+                            alt="Aegis" 
                             className="h-10 w-10 object-contain" 
                         />
                         <div className="w-px h-6 bg-white/20 mx-3 group-hover:bg-white/40 transition-colors" />
                         <img 
                             src="/logo_text.png" 
-                            alt="Aegis" 
+                            alt="" 
                             className="h-8 object-contain opacity-100 transition-opacity" 
                         />
                         <span className="hidden sm:block data-label text-brand/60 ml-3">v0.1</span>
