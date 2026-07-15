@@ -46,10 +46,12 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||(!t&&window.matchMedia("(prefers-color-scheme: light)").matches)){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")}}catch(e){}})();` }} />
+      </head>
       <body
-        className={`${syne.variable} ${ibmMono.variable} font-[var(--font-display)] bg-surface text-zinc-200 min-h-screen flex flex-col antialiased`}
+        className={`${syne.variable} ${ibmMono.variable} font-[var(--font-display)] bg-[var(--color-surface)] text-[var(--color-foreground)] min-h-screen flex flex-col antialiased`}
         suppressHydrationWarning
       >
         <WebGLBackground />
