@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
 
 const ConnectWallet = dynamic(() => import("./ConnectWallet"), { ssr: false });
 
@@ -57,7 +56,6 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <div className="w-px h-5 bg-border mx-3" />
-                        <ThemeToggle />
                         <ConnectWallet />
                     </div>
 

@@ -9,8 +9,6 @@
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-hover: rgba(232, 85, 10, 0.25);
   --color-muted: #71717A;
-  --color-foreground: #e4e4e7;
-
   /* Fluid type scale */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
@@ -24,23 +22,6 @@
   --text-6xl: clamp(3.25rem, 2.25rem + 5vw, 6rem);
 }
 
-:root {
-  --color-brand: #E8550A;
-  --color-brand-hover: #CC4A08;
-  --color-surface: #FAFAF9;
-  --color-panel: #FFFFFF;
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-muted: #71717A;
-  --color-foreground: #0A0A0F;
-}
-
-.dark {
-  --color-surface: #050508;
-  --color-panel: #0A0A0F;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-foreground: #e4e4e7;
-}
-
 /* ─── Base ─── */
 @layer base {
   html {
@@ -49,7 +30,7 @@
 
   body {
     background-color: var(--color-surface);
-    color: var(--color-foreground);
+    color: #e4e4e7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
