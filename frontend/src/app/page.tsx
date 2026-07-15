@@ -5,7 +5,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ShieldCheck, Zap, ArrowRight, Terminal, Award, Star, Gem, Lock, Eye, FileCheck } from "lucide-react";
 import AgentCard, { type AgentData } from "@/components/AgentCard";
-import ProtocolStats from "@/components/ProtocolStats";
+import AnimatedHero from "@/components/AnimatedHero";
+import MetricBar from "@/components/MetricBar";
 
 const CreateQuestModal = dynamic(() => import("@/components/CreateQuestModal"), { ssr: false });
 
@@ -60,55 +61,8 @@ export default function Home() {
   return (
     <>
 
-      {/* ─── Hero ─── */}
-      <section className="relative overflow-hidden">
-        {/* Gradient Orbs */}
-        <div className="orb orb-brand w-[500px] h-[500px] -top-40 -right-40 opacity-20" />
-        <div className="orb orb-amber w-[400px] h-[400px] -bottom-20 -left-32 opacity-15" style={{ animationDelay: "-4s" }} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
-          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-
-            {/* Headline */}
-            <h1 className="animate-fade-up stagger-1 text-6xl font-extrabold tracking-tight text-white leading-[1.05]" style={{ textWrap: "balance" }}>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">Decentralized</span><br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">
-                AI Agents
-              </span>
-              {/* Inline status dot */}
-              <span className="inline-flex items-center gap-2 ml-4 align-middle">
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 pulse-dot-green" />
-                <span className="text-emerald-400 text-sm font-medium tracking-normal">LIVE</span>
-              </span>
-            </h1>
-
-            {/* Sub */}
-            <p className="animate-fade-up stagger-2 mt-8 text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto" style={{ textWrap: "balance" }}>
-              Securely coordinate, fund, and verify autonomous AI agents on the Stacks blockchain.
-              Powered by cryptographic proofs and trustless smart contract logic.
-            </p>
-
-            {/* CTAs - Primary: task-oriented, Secondary: browse */}
-            <div className="animate-fade-up stagger-3 mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
-              <Link
-                href="/quests/new"
-                className="btn-glow w-full sm:w-56 px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-              >
-                Launch a Quest <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/agents"
-                className="w-full sm:w-56 px-6 py-3.5 bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center text-center"
-              >
-                Explore Agents
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom divider */}
-        <hr className="hr-glow" />
-      </section>
+      {/* ─── Hero — Caldera-inspired word animation ─── */}
+      <AnimatedHero />
 
       {/* ─── Agent Registry ─── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -134,8 +88,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Protocol Stats (pending mainnet) ─── */}
-      <ProtocolStats />
+      {/* ─── Metrics Bar — Caldera-inspired clean stats ─── */}
+      <MetricBar />
 
       {/* ─── How It Works ─── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
