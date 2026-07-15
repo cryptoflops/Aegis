@@ -165,7 +165,7 @@ export default function NewQuestPage() {
               href={`https://explorer.hiro.so/txid/${txId}?chain=${isMainnet ? "mainnet" : "testnet"}`}
               target="_blank"
               rel="noreferrer"
-              className="btn-glow inline-flex px-5 py-2.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
+              className="btn-glow inline-flex px-6 py-2.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
             >
               View on Explorer <Send size={14} />
             </a>
@@ -255,10 +255,11 @@ export default function NewQuestPage() {
           ) : (
             <div className="space-y-3">
               {filteredAgents.map((agent) => (
-                <div
+                <button
                   key={agent.id}
+                  type="button"
                   onClick={() => setSelectedAgent(agent)}
-                  className={`glass-card !p-5 cursor-pointer transition-all active:scale-[0.98] flex items-center gap-4 ${
+                  className={`glass-card !p-5 cursor-pointer transition-all active:scale-[0.98] flex items-center gap-4 w-full text-left ${
                     selectedAgent?.id === agent.id
                       ? "!border-brand/40 !bg-brand/[0.03]"
                       : "hover:!border-white/15"
@@ -283,7 +284,7 @@ export default function NewQuestPage() {
                       {agent.stats.successRate}% · {agent.stats.completed} quests
                     </p>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           )}
@@ -424,7 +425,7 @@ export default function NewQuestPage() {
         <button
           onClick={() => { setStep(Math.max(1, step - 1)); setError(null); }}
           disabled={step === 1}
-          className="px-5 py-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-medium transition-all active:scale-[0.98] disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-5 py-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-medium transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
         >
           <ArrowLeft size={14} /> Back
         </button>

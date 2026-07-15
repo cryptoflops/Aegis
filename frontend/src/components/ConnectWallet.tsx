@@ -34,7 +34,17 @@ export default function ConnectWallet() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    if (!mounted) return null;
+    if (!mounted) {
+        return (
+            <button
+                disabled
+                className="btn-glow px-3.5 py-2.5 bg-brand/50 text-white/50 rounded-none flex items-center gap-2 text-sm font-semibold animate-pulse"
+            >
+                <Wallet size={14} />
+                Connect
+            </button>
+        );
+    }
 
     const connect = () => {
         const userSession = getUserSession();
@@ -132,7 +142,7 @@ export default function ConnectWallet() {
     return (
         <button
             onClick={connect}
-            className="btn-glow px-3.5 py-1.5 bg-brand hover:bg-brand-hover text-white rounded-none flex items-center gap-2 transition-all active:scale-[0.98] text-sm font-semibold"
+            className="btn-glow px-3.5 py-2.5 bg-brand hover:bg-brand-hover text-white rounded-none flex items-center gap-2 transition-all active:scale-[0.98] text-sm font-semibold"
         >
             <Wallet size={14} />
             Connect

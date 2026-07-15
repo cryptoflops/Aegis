@@ -17,6 +17,7 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
     const [bounty, setBounty] = useState(parseFloat(agent.price));
     const [txId, setTxId] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [submitting, setSubmitting] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -26,6 +27,8 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
             return;
         }
 
+        setSubmitting(true);
+        setError(null);
         try {
             await openContractCall({
                 network: isMainnet ? "mainnet" : "testnet",
@@ -54,20 +57,24 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                         status: "pending",
                     });
                     localStorage.setItem("aegis_quests", JSON.stringify(existing));
+                    setSubmitting(false);
                 },
                 onCancel: () => {
                     console.log("Transaction cancelled");
+                    setSubmitting(false);
                 },
             });
-        } catch (error) {
-            console.error("Error calling contract:", error);
+        } catch (err: any) {
+            console.error("Error calling contract:", err);
+            setError(err?.message || "Transaction failed. Please try again.");
+            setSubmitting(false);
         }
     };
 
     return (
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md p-4" onClick={onClose}>
             <div
-                className="bg-panel border border-border rounded-none shadow-2xl shadow-black/50 w-full max-w-lg overflow-hidden animate-fade-up"
+                className="bg-panel/80 backdrop-blur-xl border border-border rounded-none shadow-2xl shadow-black/50 w-full max-w-lg overflow-hidden animate-fade-up"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header */}
@@ -150,9 +157,10 @@ export default function CreateQuestModal({ agent, onClose }: { agent: any, onClo
                             <div className="pt-4 border-t border-border">
                                 <button
                                     type="submit"
-                                    className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98]"
+                                    disabled={submitting}
+                                    className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-none font-semibold transition-all active:scale-[0.98]"
                                 >
-                                    Lock Funds & Dispatch Quest
+                                    {submitting ? "Processing..." : "Lock Funds & Dispatch Quest"}
                                 </button>
                             </div>
                         </form>

@@ -19,6 +19,7 @@ export default function RegisterForm() {
     const [endpoint, setEndpoint] = useState("");
     const [txId, setTxId] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [submitting, setSubmitting] = useState(false);
 
     const handleRegister = async () => {
         const userSession = getUserSession();
@@ -27,6 +28,8 @@ export default function RegisterForm() {
             return;
         }
 
+        setSubmitting(true);
+        setError(null);
         try {
             await openContractCall({
                 network: isMainnet ? "mainnet" : "testnet",
@@ -46,13 +49,17 @@ export default function RegisterForm() {
                 },
                 onFinish: (data) => {
                     setTxId(data.txId);
+                    setSubmitting(false);
                 },
                 onCancel: () => {
                     console.log("Registration cancelled");
+                    setSubmitting(false);
                 },
             });
-        } catch (error) {
-            console.error("Error registering agent:", error);
+        } catch (err: any) {
+            console.error("Error registering agent:", err);
+            setError(err?.message || "Registration failed. Please try again.");
+            setSubmitting(false);
         }
     };
 
@@ -168,10 +175,10 @@ export default function RegisterForm() {
                     <button
                         type="button"
                         onClick={handleRegister}
-                        disabled={!name || !description}
+                        disabled={!name || !description || submitting}
                         className="btn-glow w-full py-3.5 bg-brand hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                     >
-                        Sign Registration Transaction <ArrowRight size={16} />
+                        {submitting ? "Processing..." : <>Sign Registration Transaction <ArrowRight size={16} /></>}
                     </button>
                 </div>
             </div>

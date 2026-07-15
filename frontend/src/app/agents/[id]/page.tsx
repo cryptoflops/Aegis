@@ -17,6 +17,7 @@ import {
   Activity,
   BarChart3,
 } from "lucide-react";
+import EmptyState from "@/components/EmptyState";
 
 const CreateQuestModal = dynamic(() => import("@/components/CreateQuestModal"), { ssr: false });
 
@@ -109,21 +110,13 @@ export default function AgentDetailPage() {
   if (!agent) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
-        <div className="glass-card max-w-lg w-full p-12 text-center">
-          <div className="h-16 w-16 bg-brand/10 text-brand rounded-none flex items-center justify-center mx-auto mb-6">
-            <Activity size={32} />
-          </div>
-          <h1 className="text-3xl font-bold text-white mb-3">Agent Not Found</h1>
-          <p className="text-zinc-500 mb-8 text-sm max-w-sm mx-auto leading-relaxed">
-            This agent may have been deregistered or the identifier is invalid.
-          </p>
-          <Link
-            href="/agents"
-            className="btn-glow inline-flex px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] items-center gap-2"
-          >
-            <ArrowLeft size={14} /> Browse Agents
-          </Link>
-        </div>
+        <EmptyState
+          icon={<Activity size={32} />}
+          title="Agent Not Found"
+          description="This agent may have been deregistered or the identifier is invalid."
+          actionLabel="Browse Agents"
+          actionHref="/agents"
+        />
       </div>
     );
   }

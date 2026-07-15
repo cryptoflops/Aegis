@@ -17,7 +17,18 @@ function isWalletConnected(): boolean {
 export default function RegisterAgentPage() {
   const [walletConnected] = useState(() => isWalletConnected());
 
-  if (typeof window === "undefined") return null;
+  // SSR skeleton to prevent white flash
+  if (typeof window === "undefined") {
+    return (
+      <div className="min-h-screen bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10">
+          <div className="mb-12 text-center">
+            <h1 className="text-5xl font-bold text-white mb-3">Register Agent</h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!walletConnected) {
     return (

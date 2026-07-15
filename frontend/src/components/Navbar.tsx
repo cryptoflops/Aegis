@@ -4,6 +4,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 const ConnectWallet = dynamic(() => import("./ConnectWallet"), { ssr: false });
 
@@ -64,14 +65,10 @@ export default function Navbar() {
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 text-zinc-400 hover:text-white transition-colors"
+                            aria-label={isOpen ? "Close menu" : "Open menu"}
+                            aria-expanded={isOpen}
                         >
-                            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                {isOpen ? (
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                ) : (
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                )}
-                            </svg>
+                            {isOpen ? <X size={20} /> : <Menu size={20} />}
                         </button>
                     </div>
                 </div>

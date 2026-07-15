@@ -56,8 +56,19 @@ export default function MyQuestsPage() {
     return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
-  // Use ref to prevent flash during SSR
-  if (typeof window === "undefined") return null;
+  // SSR skeleton to prevent white flash
+  if (typeof window === "undefined") {
+    return (
+      <div className="min-h-screen bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10">
+          <div className="mb-10">
+            <p className="data-label text-brand mb-2">Dashboard</p>
+            <h1 className="text-5xl font-bold text-white mb-3">My Quests</h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Wallet not connected - show connect prompt
   if (!walletConnected) {
@@ -102,7 +113,7 @@ export default function MyQuestsPage() {
         </div>
         <Link
           href="/quests/new"
-          className="btn-glow shrink-0 px-5 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center gap-2"
+          className="btn-glow shrink-0 px-6 py-3 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center gap-2"
         >
           <Plus size={16} /> New Quest
         </Link>
@@ -137,6 +148,7 @@ export default function MyQuestsPage() {
                   rel="noreferrer"
                   className="p-2 bg-white/5 hover:bg-white/10 border border-border rounded-none transition-colors"
                   title="View on Explorer"
+                  aria-label="View on Explorer"
                 >
                   <ExternalLink size={14} className="text-zinc-500" />
                 </a>

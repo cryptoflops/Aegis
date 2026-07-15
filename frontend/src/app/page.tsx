@@ -71,7 +71,7 @@ export default function Home() {
 
             {/* Headline */}
             <h1 className="animate-fade-up stagger-1 text-6xl font-extrabold tracking-tight text-white leading-[1.05]" style={{ textWrap: "balance" }}>
-              <span className="text-gradient-animate">Decentralized</span><br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">Decentralized</span><br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-400 to-amber-400">
                 AI Agents
               </span>
@@ -282,13 +282,13 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/quests/new"
-            className="btn-glow px-8 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+            className="btn-glow px-6 py-3.5 bg-brand hover:bg-brand-hover text-white rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2"
           >
             Launch a Quest <ArrowRight size={16} />
           </Link>
           <Link
             href="/register"
-            className="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center"
+            className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 rounded-none font-semibold transition-all active:scale-[0.98] flex items-center justify-center"
           >
             Register Agent
           </Link>

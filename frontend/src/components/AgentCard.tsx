@@ -29,7 +29,7 @@ export default function AgentCard({
 }) {
   return (
     <div
-      className={`group glass-card spotlight-card bg-gradient-to-br ${agent.gradient} border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-3xl flex flex-col pt-8 pb-6 px-8`}
+      className={`group glass-card spotlight-card bg-gradient-to-br ${agent.gradient} transition-all duration-500 hover:-translate-y-2 hover:shadow-3xl flex flex-col p-6`}
     >
       {/* Card Header */}
       <div className="flex justify-between items-start mb-5">

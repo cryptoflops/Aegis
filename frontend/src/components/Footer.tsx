@@ -9,7 +9,7 @@ export default function Footer() {
                     <div className="flex items-center gap-3">
                         <img 
                             src="/logo_icon.png" 
-                            alt="Aegis" 
+                            alt=""
                             className="h-6 w-6 opacity-40 hover:opacity-100 transition-opacity object-contain" 
                         />
                         <span className="data-label">

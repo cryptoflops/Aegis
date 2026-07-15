@@ -97,18 +97,18 @@ export default function ProtocolStats({ stats }: ProtocolStatsProps) {
   return (
     <section className="border-t border-b border-border bg-panel/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {!hasAnyData ? (
-            <div className="col-span-full text-center py-8">
-              <p className="text-zinc-500 text-sm font-medium mb-1">Protocol Launching Soon</p>
-              <p className="data-label text-zinc-600">On-chain metrics will appear here once mainnet deployment is complete.</p>
-            </div>
-          ) : (
-            displayStats.map((stat) => (
+        {!hasAnyData ? (
+          <div className="text-center py-8">
+            <p className="text-zinc-500 text-sm font-medium mb-1">Protocol Launching Soon</p>
+            <p className="data-label text-zinc-600">On-chain metrics will appear here once mainnet deployment is complete.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {displayStats.map((stat) => (
               <StatCell key={stat.label} stat={stat} />
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

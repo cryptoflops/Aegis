@@ -87,6 +87,25 @@ export default function DocsPage() {
                 </p>
             </div>
 
+            {/* Mobile Section Navigation */}
+            <div className="lg:hidden mb-8">
+                <select
+                    value={activeSection}
+                    onChange={(e) => {
+                        const id = e.target.value;
+                        setActiveSection(id);
+                        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="sort-select w-full !py-2.5 !text-sm"
+                >
+                    {SECTIONS.map((s) => (
+                        <option key={s.id} value={s.id}>
+                            {s.title}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
             {/* Two-column layout with sidebar TOC */}
             <div className="flex gap-10">
                 {/* Sidebar TOC (desktop) */}
