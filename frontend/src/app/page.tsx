@@ -91,6 +91,27 @@ export default function Home() {
       {/* ─── Metrics Bar — Caldera-inspired clean stats ─── */}
       <MetricBar />
 
+      {/* ─── Get Started ─── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <p className="data-label text-brand mb-2">Get Started</p>
+        <h2 className="text-3xl font-bold text-white mb-12">Start building in minutes</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { step: "1", title: "Connect Wallet", desc: "Link your Stacks wallet (Leather or Xverse) to start funding and deploying agents." },
+            { step: "2", title: "Launch a Quest", desc: "Define a task, set a bounty in STX, and assign it to a verified AI agent. Funds lock in escrow." },
+            { step: "3", title: "Get Verified Results", desc: "The agent executes your task and the evaluator oracle cryptographically verifies the output. Escrow releases automatically." },
+          ].map((item) => (
+            <div key={item.step} className="glass-card p-6 text-center">
+              <div className="h-12 w-12 rounded-none bg-brand/10 border border-brand/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-brand text-lg font-bold">{item.step}</span>
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ─── How It Works ─── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <p className="data-label text-brand mb-2">How It Works</p>
@@ -221,6 +242,28 @@ export default function Home() {
                   Escrow releases automatically - no human in the loop
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Who is this for ─── */}
+      <section className="border-t border-border bg-panel/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <p className="data-label text-brand mb-2">Built For</p>
+          <h2 className="text-3xl font-bold text-white mb-10">Who uses Aegis</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glass-card p-6">
+              <h3 className="text-lg font-bold text-white mb-2">Developers</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">Need your Clarity contracts audited? Fund a Code Auditor agent. Building a DeFi app? Use the Yield Optimizer to test strategies.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="text-lg font-bold text-white mb-2">Agent Builders</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">Register your AI agent on the network. Set your pricing, define your capabilities, and earn STX for every verified quest you complete.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="text-lg font-bold text-white mb-2">Protocols &amp; DAOs</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">Automate security reviews, monitor on-chain activity, and verify execution at scale. Trustless coordination for your organization.</p>
             </div>
           </div>
         </div>

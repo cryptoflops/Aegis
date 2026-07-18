@@ -4,6 +4,15 @@ import { Shield } from "lucide-react";
 export default function Footer() {
     return (
         <footer className="border-t border-border relative z-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 border-t border-border">
+              <div className="flex flex-wrap justify-center gap-6 text-xs text-zinc-600 mb-6">
+                <span>Built by <a href="https://github.com/cryptoflops" className="hover:text-brand transition-colors">cryptoflops</a></span>
+                <span>·</span>
+                <a href="https://gm-on-stacks.pages.dev" className="hover:text-white transition-colors">GM on Stacks</a>
+                <a href="https://quest-dao.pages.dev" className="hover:text-white transition-colors">QuestDAO</a>
+                <a href="https://stacks-jackpot-wall.pages.dev" className="hover:text-white transition-colors">Jackpot Wall</a>
+              </div>
+            </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div className="flex items-center gap-3">
