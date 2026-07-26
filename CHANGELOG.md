@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-25
+## [Unreleased] - 2026-07-26
 
 ### Changed
-- Refactored wallet connection flow for reliability
+- Optimized RPC batch requests for lower latency
 
 ### Fixed
-- Fixed decimal formatting for sub-STX amounts
+- Resolved race condition in wallet state sync
