@@ -3,7 +3,7 @@
 ## [Unreleased] - 2026-07-27
 
 ### Changed
-- Updated dependencies to latest stable versions
+- Improved loading state indicators across UI
 
 ### Fixed
-- Addressed timeout handling for slow RPC responses
+- Fixed edge case in balance display for micro amounts
