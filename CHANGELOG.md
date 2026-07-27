@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-26
+## [Unreleased] - 2026-07-27
 
 ### Changed
-- Optimized RPC batch requests for lower latency
+- Updated dependencies to latest stable versions
 
 ### Fixed
-- Resolved race condition in wallet state sync
+- Addressed timeout handling for slow RPC responses
