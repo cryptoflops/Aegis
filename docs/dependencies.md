@@ -1,6 +1,6 @@
 # Dependency Decisions
 
-Updated: 2026-07-30
+Updated: 2026-07-31
 
 ## Core
 - @stacks/transactions: ^6.16.0
@@ -9,4 +9,4 @@ Updated: 2026-07-30
 ## Notes
 - Pinned stacks SDK for post-Nakamoto compatibility
 
-Audit: vsu5lobo
+Audit: d5491crn
