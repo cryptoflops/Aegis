@@ -1,6 +1,6 @@
 # aegis Environment Guide
 
-Generated: 2026-07-31T12:43:06.151Z
+Generated: 2026-07-31T16:42:33.696Z
 
 ## Requirements
 - Node.js >= 18
@@ -9,4 +9,4 @@ Generated: 2026-07-31T12:43:06.151Z
 ## Validation
 Ensure `.env` matches `.env.example` before deployment.
 
-Build: ipyi6bpi
+Build: ltv7ftsz
