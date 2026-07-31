@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased] - 2026-07-29
+## [Unreleased] - 2026-07-31
 
 ### Changed
-- Enhanced mobile responsiveness on smaller screens
+- Updated dependencies to latest stable versions
 
 ### Fixed
-- Fixed decimal formatting for sub-STX amounts
+- Resolved race condition in wallet state sync
