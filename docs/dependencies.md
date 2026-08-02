@@ -1,12 +1,12 @@
 # Dependency Decisions
 
-Updated: 2026-08-01
+Updated: 2026-08-02
 
 ## Core
-- @stacks/transactions: ^6.15.0
-- @stacks/network: ^6.17.0
+- @stacks/transactions: ^6.16.0
+- @stacks/network: ^6.15.0
 
 ## Notes
-- Pinned stacks SDK for post-Nakamoto compatibility
+- Next.js App Router for better streaming SSR
 
-Audit: uxkyg9er
+Audit: m5g9j8d5
